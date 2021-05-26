@@ -33,13 +33,13 @@
                         <h1 style="margin-left:50%; ">game placing</h1>
                        </div><br>
                       
-                      <form action="play" method="post">
+                      <form action="/play" method="post">@csrf
                           <div class="row justify-content-center">
-                              <input type="number" name="1" id="" placeholder="first number" maxlength="2">
-                              <input type="number" name="2" id="" placeholder="second number" maxlength="2">
-                              <input type="number" name="3" id="" placeholder="third number" maxlength="2">
-                              <input type="number" name="4" id="" placeholder="fourth number" maxlength="2">
-                              <input type="number" name="5" id="" placeholder="fifth number" maxlength="2">
+                              <input type="number" name="1" id="" placeholder="first number"required maxlength="2">
+                              <input type="number" name="2" id="" placeholder="second number"required maxlength="2">
+                              <input type="number" name="3" id="" placeholder="third number"required maxlength="2">
+                              <input type="number" name="4" id="" placeholder="fourth number"required maxlength="2">
+                              <input type="number" name="5" id="" placeholder="fifth number"required maxlength="2">
                               <button type="submit" class="btn btn-outline-secondary">submit</button>
                           </div>
                       </form><br>
@@ -61,7 +61,7 @@
                     <table style="width: 100%">
                         <tr>
                           <th>id</th>
-                          <th>treminal</th>
+                          <th>terminal</th>
                           <th>1</th>
                           <th>2</th>
                           <th>3</th>
@@ -77,7 +77,7 @@
                           <td>35</td>
                           <td>0</td>
                           <td>25</td>
-                          <td>200</td>
+                          <td>300</td>
                           
                         </tr>
                         <tr>
@@ -108,8 +108,31 @@
                     <div class="row">
                      <h1 style="margin-left:50%; ">results</h1>
                     </div><br>
-                   
-                  
+                    <h1 style="margin-left:50%; ">most appering numbers</h1>
+                    <table style="width: 100%">
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th>40%</th>
+                          <th>10%</th>
+                          <th>30%</th>
+                          <th>10%</th>
+                          <th>10%</th>
+                          <th></th>
+                        </tr>
+                        <tr>
+                          <td></td>
+                          <td></td>
+                          <td>17</td>
+                          <td>9</td>
+                          <td>35</td>
+                          <td>0</td>
+                          <td>25</td>
+                          <td></td>
+                          
+                        </tr>
+                      
+                    </table>
                    
          
                 </div>
