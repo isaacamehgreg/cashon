@@ -36,8 +36,6 @@ Route::get('/least', function () {
                    ->limit(5)
                    ->get();
    
-       
-
        return response()->json($least,200);
        
 
