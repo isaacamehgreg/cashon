@@ -15,9 +15,18 @@ class CreateBetsTable extends Migration
     {
         Schema::create('bets', function (Blueprint $table) {
             $table->id();
+            $table->string('agent_id');
             $table->string('terminal_id');
-            $table->integer('bet_code');
+            $table->string('bet_code');
+            $table->integer('n1');
+            $table->integer('n2');
+            $table->integer('n3');
+            $table->integer('n4');
+            $table->integer('n5');
             $table->string('status');#boolean /about_to_start/win/lost/canceled/paid/expired/
+            $table->integer('stake');
+            $table->integer('potential_winning');
+            $table->string('ticket_number');
             $table->timestamps();
         });
     }

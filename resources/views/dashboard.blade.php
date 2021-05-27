@@ -33,7 +33,7 @@
                         <h1 style="margin-left:50%; ">game placing</h1>
                        </div><br>
                       
-                      <form action="/play" method="post">@csrf
+                      <form action="/play/2/0004" method="post">@csrf
                           <div class="row justify-content-center">
                               <input type="number" name="1" id="" placeholder="first number"required maxlength="2">
                               <input type="number" name="2" id="" placeholder="second number"required maxlength="2">
