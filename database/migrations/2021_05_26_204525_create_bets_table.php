@@ -25,8 +25,10 @@ class CreateBetsTable extends Migration
             $table->integer('n5');
             $table->string('status');#boolean /about_to_start/win/lost/canceled/paid/expired/
             $table->integer('stake');
-            $table->integer('potential_winning');
-            $table->string('ticket_number');
+            $table->integer('potential_winning')->nullable();
+            $table->string('ticket_number')->nullable();
+            $table->string('result')->nullable();
+            $table->integer('combination')->nullable();
             $table->timestamps();
         });
     }
