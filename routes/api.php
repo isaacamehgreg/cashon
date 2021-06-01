@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\TerminalController;
 use App\Models\Bet;
 use App\Models\GamesPicked;
 use App\Models\Multiplier;
@@ -25,35 +25,50 @@ use Illuminate\Support\Arr;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::group(['middleware'=>['auth:sanctum']] , function () {
 
-Route::get('/least', function () {
+    Route::post('/login',[AuthController::class, 'login']);
 
-        $most =   DB::table('games_played')
-               ->select('number')
-               ->groupBy('number')
-               ->orderByRaw('COUNT(*) DESC')
-               ->limit(5)
-               ->get();
+
+
+//     Route::get('/least', function () {
+
+//         $most =   DB::table('games_played')
+//                ->select('number')
+//                ->groupBy('number')
+//                ->orderByRaw('COUNT(*) DESC')
+//                ->limit(5)
+//                ->get();
    
-       $least =   DB::table('games_played')
-                   ->select('number')
-                   ->groupBy('number')
-                   ->orderByRaw('COUNT(*) ASC')
-                   ->limit(5)
-                   ->get();
+//        $least =   DB::table('games_played')
+//                    ->select('number')
+//                    ->groupBy('number')
+//                    ->orderByRaw('COUNT(*) ASC')
+//                    ->limit(5)
+//                    ->get();
    
-       return response()->json($least,200);
+//        return response()->json($least,200);
        
 
+//    });
+//    Route::get('try', function () {
+//        return 'try';
+//    });
 });
+
+
+
+
 Route::get('bet',function(){
     return view('terminal.terminal');
 });
 
 
+Route::post('bet',function(Request $request){
+    return view('terminal.terminal');
+});
 
+//placeholder
+Route::post('bet/{terminal_id}', [TerminalController::class, 'bet']);
 
 

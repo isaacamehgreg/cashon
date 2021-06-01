@@ -1,4 +1,4 @@
-<x-app-layout>
+
  
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -9,7 +9,7 @@
                    <div class="card-body">
                       
                       
-                      <form action="/play/2/0004" method="post">@csrf
+                      <form action="api/bet/3" method="post">@csrf
                           <div class="row justify-content-center">
                               <input type="number" name="1" id="" placeholder="first number"required maxlength="2">
                               <input type="number" name="2" id="" placeholder="second number"required maxlength="2">
@@ -41,4 +41,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+
