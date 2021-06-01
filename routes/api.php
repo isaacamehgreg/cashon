@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TerminalController;
 use App\Models\Bet;
 use App\Models\GamesPicked;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,9 +27,14 @@ use Illuminate\Support\Arr;
 |
 */
 
+//public routes 
+Route::post('/login',[AuthController::class, 'login']);
+
+
+//protected route
 Route::group(['middleware'=>['auth:sanctum']] , function () {
 
-    Route::post('/login',[AuthController::class, 'login']);
+   
 
 
 
