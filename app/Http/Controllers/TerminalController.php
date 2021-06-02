@@ -25,9 +25,13 @@ class TerminalController extends Controller
   
    
    
-    public function bet(Request $request, $terminal_id){
+    public function place_bet(Request $request){
 
-           // return($terminal_id);
+    return $request->input('draw');
+
+    $terminal_id = 4;
+
+    // return($terminal_id);
     if( DB::table('users')->where('id','terminal_id')->value('id') == `$terminal_id`){
 
         // dd($gamecode);

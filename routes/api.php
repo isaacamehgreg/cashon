@@ -33,6 +33,8 @@ Route::post('/login',[AuthController::class, 'login']);
 
 //protected route
 Route::group(['middleware'=>['auth:sanctum']] , function () {
+    Route::post('/_logout',[AuthController::class, '_logout']);
+    Route::post('/place_bet',[TerminalController::class, 'place_bet']);
 
    
 
@@ -66,16 +68,16 @@ Route::group(['middleware'=>['auth:sanctum']] , function () {
 
 
 
-Route::get('bet',function(){
-    return view('terminal.terminal');
-});
+// Route::get('bet',function(){
+//     return view('terminal.terminal');
+// });
 
 
-Route::post('bet',function(Request $request){
-    return view('terminal.terminal');
-});
+// Route::post('bet',function(Request $request){
+//     return view('terminal.terminal');
+// });
 
-//placeholder
-Route::post('bet/{terminal_id}', [TerminalController::class, 'bet']);
+// //placeholder
+// Route::post('bet/{terminal_id}', [TerminalController::class, 'bet']);
 
 

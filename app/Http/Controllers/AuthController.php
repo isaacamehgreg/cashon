@@ -45,11 +45,15 @@ class AuthController extends Controller
 
     }
 
-    // public function logout(){
-        
-    //    auth()->user()->tokens()->delete;
+    public function _logout(Request $request){
+    
+      // $tokenId ->request->inputs('token_id');
+     
+       $user = User::all();
+      // $user->tokens()->where('id', $tokenId)->delete();
 
-    // }
+
+    }
 
 
 }

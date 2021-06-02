@@ -92,7 +92,7 @@
                 <a class="nav-link" href="all-agents.html"> All Agents </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="add-agents.html"> Add Agent </a>
+                <a class="nav-link" href="/create_agent"> Add Agent </a>
               </li>
             </ul>
           </div>

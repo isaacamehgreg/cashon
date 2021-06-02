@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Models\Bet;
 use App\Models\GamesPicked;
 use App\Models\Multiplier;
@@ -140,3 +141,9 @@ Route::get('/winners', function(){
 
 });
 
+
+
+//admin the
+//agents
+Route::get('create_agent',[AdminController::class,'create_agent']);
+Route::post('create_an_agent',[AdminController::class,'create_an_agent']);
