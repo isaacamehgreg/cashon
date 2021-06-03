@@ -20,31 +20,31 @@
                   <thead>
                     <tr>
                       
-                      <th> Name </th>
-                      <th> email </th>
-                      <th> phone </th>
+                      <th> Terminal id </th>
+                      <th> owner </th>
+                      <th> terminal_phone </th>
                       <th> Area in Charge </th>
                       <th> No. of terminals </th>
                       <th> revenue paid </th>
                       <th> payment due </th>
-                      {{-- <th> Edit </th> --}}
-                      <th> block </th>
+                      <th> Edit </th>
+                      <th> Delete </th>
                     </tr>
                   </thead>
                   <tbody>
-                   @foreach ($agents as $agent)
+                   @foreach ($terminals as $terminal)
                        
                 
                     <tr>
                    
-                      <td>{{$agent->name}}</td>
-                      <td>{{$agent->email}}</td>
-                      <td>{{$agent->phone}}</td>
-                      <td>{{$agent->state}}</td>
-                      <td>{{count(DB::table('users')->where('own_by', $agent->id)->get())}}</td>
+                      <td>{{$terminal->id}}</td>
+                      <td>{{DB::table('users')->where('id',$terminal->own_by)->value('name')}}</td>
+                      <td>{{$terminal->phone}}</td>
+                      <td>{{$terminal->state}}</td>
                       <td>agents own terminal but then terminal are users</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('credit')}}</td>
-                      {{-- <td><button type="button" class="btn btn-primary btn-sm">edit</button></td> --}}
+                      <td>agents own terminal but then terminal are users</td>
+                      <td>agents own terminal but then terminal are users</td>
+                      <td><button type="button" class="btn btn-primary btn-sm">edit</button></td>
                       <td><button type="button" class="btn btn-danger btn-sm">block</button></td>
                     </tr>
 

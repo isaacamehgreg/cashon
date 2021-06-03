@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTerminalCredsTable extends Migration
+class CreateDebtsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateTerminalCredsTable extends Migration
      */
     public function up()
     {
-        Schema::create('terminal_creds', function (Blueprint $table) {
+        Schema::create('debts', function (Blueprint $table) {
             $table->id();
-            $table->string('agent_id');
-            $table->string('cashier_id');
-            $table->string('password');
+            $table->integer('agent_id')->nullable();
+            $table->integer('dues_paid')->nullable();
+            $table->integer('dues_to_be_paid')->nullable();
+            $table->integer('total_fines')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateTerminalCredsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('terminal_creds');
+        Schema::dropIfExists('debts');
     }
 }

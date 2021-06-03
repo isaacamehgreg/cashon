@@ -63,7 +63,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="debt-summary.html">
+          <a class="nav-link" href="/debt_summary">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Debt Summary</span>
           </a>
@@ -89,10 +89,13 @@
           <div class="collapse" id="agt">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="all-agents.html"> All Agents </a>
+                <a class="nav-link" href="/all_agents"> All Agents </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/create_agent"> Add Agent </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/credit_agent"> Allocate Credit </a>
               </li>
             </ul>
           </div>
@@ -106,10 +109,10 @@
           <div class="collapse" id="terminal">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="all-terminals.html"> All Terminals </a>
+                <a class="nav-link" href="all-terminal"> All Terminals </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="add-terminal.html"> Add Terminal </a>
+                <a class="nav-link" href="create_a_terminal"> Add Terminal </a>
               </li>
             </ul>
           </div>

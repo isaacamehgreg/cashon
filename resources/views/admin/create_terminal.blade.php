@@ -15,10 +15,10 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add new terminal</h4>
-                  <form method="post" action="create_an_agent" class="forms-sample">
+                  <form method="post" action="create_terminal" class="forms-sample">
                     @csrf
                     
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                       <label for="exampleInputName1">Agent Incharge</label>
                       
                        <select class="form-control" name="agent" id="exampleInputCity1">
@@ -30,7 +30,7 @@
                        <select>
 
                       
-                    </div> --}}
+                    </div>
 
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>

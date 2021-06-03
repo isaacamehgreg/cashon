@@ -32,11 +32,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+
+
+// })->name('dashboard');
+
+Route::get('/dashboard', function () {
+    if(Auth::user()->role == 'agent'){
+        
+    }
     $play = DB::table('games_played')->get(); 
     return view('dashboard')->with(['play',$play]);
-
-})->name('dashboard');
+});
 
 
 
@@ -147,3 +154,46 @@ Route::get('/winners', function(){
 //agents
 Route::get('create_agent',[AdminController::class,'create_agent']);
 Route::post('create_an_agent',[AdminController::class,'create_an_agent']);
+Route::get('all_agents',[AdminController::class,'all_agent']);
+Route::get('credit_agent',[AdminController::class,'credit_agent']);
+Route::post('credit_an_agent',[AdminController::class,'credit_an_agent']);
+//terminal
+Route::post('create_terminal',[AdminController::class,'create_terminal']);
+Route::get('create_a_terminal',[AdminController::class,'create_a_terminal']);
+Route::get('all_terminal',[AdminController::class,'all_terminal']);
+//debt
+Route::get('debt_summary',[AdminController::class,'debt_summary']);
+
+
+
+
+
+
+//sms
+Route::get('sms', function () {
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to=2348154267564&from=BulkSMSNG&body=This+is+a+test+message.',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'POST',
+    CURLOPT_HTTPHEADER => array(
+        'Content-Type: application/json',
+        'Accept: application/json'
+    ),
+    ));
+
+   $response = curl_exec($curl);
+
+   curl_close($curl);
+
+
+  return response($response);
+
+});
+

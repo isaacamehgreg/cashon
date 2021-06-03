@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('role')->nullable();//admin,agents,terminals
+            $table->string('own_by')->nullable(); //for terminal own by agent id
             $table->string('address')->nullable();  
             $table->string('phone')->nullable();  
             $table->string('state')->nullable();  
