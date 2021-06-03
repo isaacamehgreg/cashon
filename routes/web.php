@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgentController;
 use App\Models\Bet;
 use App\Models\GamesPicked;
 use App\Models\Multiplier;
@@ -39,7 +40,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     if(Auth::user()->role == 'agent'){
-        
+        return view('agent.index')->with(['play',$play]);
     }
     $play = DB::table('games_played')->get(); 
     return view('dashboard')->with(['play',$play]);
@@ -150,7 +151,7 @@ Route::get('/winners', function(){
 
 
 
-//admin the
+//admin route
 //agents
 Route::get('create_agent',[AdminController::class,'create_agent']);
 Route::post('create_an_agent',[AdminController::class,'create_an_agent']);
@@ -164,7 +165,9 @@ Route::get('all_terminal',[AdminController::class,'all_terminal']);
 //debt
 Route::get('debt_summary',[AdminController::class,'debt_summary']);
 
-
+//agent Route
+Route::get('agent',[AgentController::class,'index']);
+Route::get('all_terminal',[AgentController::class,'all_terminal']);
 
 
 
