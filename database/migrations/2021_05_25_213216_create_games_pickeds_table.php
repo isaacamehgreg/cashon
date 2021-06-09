@@ -30,6 +30,6 @@ class CreateGamesPickedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('games_pickeds');
+        Schema::dropIfExists('games_played');
     }
 }
