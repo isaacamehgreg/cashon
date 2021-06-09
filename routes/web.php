@@ -174,6 +174,7 @@ Route::get('all_terminal',[AgentController::class,'all_terminal']);
 
 //sms
 Route::get('sms', function () {
+    return '12345';
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
