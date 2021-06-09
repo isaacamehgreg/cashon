@@ -129,4 +129,21 @@ class AdminController extends Controller
         
         return view('game.edit_game')->with(['games'=>$games,]);
     }
+    
+    public function edit_a_games(Request $request ,$id){
+        
+        $games = DB::table('games')->where('id',$id)->update([
+            'draw'=>$request->input('draw'),
+            'game_code'=>$request->input('game_code'),
+            'day'=>$request->input('day'),
+            'time'=>$request->input('time'),
+            'game_name'=>$request->input('game_name'),
+            'combo2'=>$request->input('2'),
+            'combo3'=>$request->input('3'),
+            'combo4'=>$request->input('4'),
+            'combo5'=>$request->input('5'),
+        ]);
+        
+        return redirect('all_games');
+    }
 }

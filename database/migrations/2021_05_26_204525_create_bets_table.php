@@ -17,7 +17,9 @@ class CreateBetsTable extends Migration
             $table->id(); 
             $table->string('cashier_id');
             $table->string('game_code');
-           
+
+            $table->string('phone_number')->nullable();
+            
             $table->integer('n1');
             $table->integer('n2');
             $table->integer('n3');

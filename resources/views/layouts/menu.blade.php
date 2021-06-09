@@ -131,9 +131,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="/create_game"> Create Games </a>
               </li>
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a class="nav-link" href="/edit_game"> edit Control </a>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </li>

@@ -65,7 +65,9 @@ Route::view('create_game', 'game.create_game');
 Route::post('create_game', [AdminController::class,'create_game']);
 Route::get('all_games', [AdminController::class,'all_games']);
 Route::get('edit_game/{id}', [AdminController::class,'edit_games']);
-Route::get('edit_a_game/{id}', [AdminController::class,'edit_a_games']);
+Route::post('edit_a_game/{id}', [AdminController::class,'edit_a_games']);
+
+
 
 
 

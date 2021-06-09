@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
+use App\Models\Game;
 
 // Route::post('/login',[AuthController::class, 'login']);
 
@@ -36,6 +37,7 @@ Route::post('login', function (Request $request) {
       return response()->json([
           'status'=>'success',
           'cashier_id'=>$cashier_code,
+
        ]);
     }else{
         return response()->json([
@@ -43,6 +45,18 @@ Route::post('login', function (Request $request) {
             'msg'=>'cashier not found',
          ]);
     }
+});
+
+Route::post('games/{id}', function (Request $request, $id) {
+    // $cashier_code = $request->input('cashier_code');
+    // $cashier_password = $request->input('password');
+    // $cashier_id = DB::table('cashiers')->where('cashier_code',$cashier_code)->where('cashier_password',$cashier_password)->value('id');
+    
+      return response()->json([
+          'status'=>'success',
+          'cashier_id'=>Game::all(),
+       ]);
+    
 });
 
 
