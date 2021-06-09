@@ -37,6 +37,11 @@ Route::post('login', function (Request $request) {
           'status'=>'success',
           'cashier_id'=>$cashier_code,
        ]);
+    }else{
+        return response()->json([
+            'status'=>'failed',
+            'msg'=>'cashier not found',
+         ]);
     }
 });
 
