@@ -14,7 +14,7 @@
           <div class="col-md-6 mx-auto grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add new terminal</h4>
+                  <h4 class="card-title">Add new Agent</h4>
                   <form method="post" action="create_an_agent" class="forms-sample">
                     @csrf
                     

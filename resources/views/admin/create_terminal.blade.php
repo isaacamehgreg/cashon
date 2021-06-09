@@ -46,8 +46,8 @@
                       <input type="text" name="phone" class="form-control" id="exampleInputCity1" placeholder="Phone">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputEmail3">Email address</label>
-                      <input type="email" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                      <label for="exampleInputEmail3">Cashier Code</label>
+                      <input type="number" name="code" class="form-control" id="exampleInputEmail3" max-length="6" placeholder="Cashier code">
                     </div>
 
                     <div class="form-group">

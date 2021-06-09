@@ -206,3 +206,18 @@ Route::get('/winners', function(){
 
 
 //..........................................
+
+    // Route::group(['prefix'=>'agent','as'=>'agent'], function(){
+    //     //terminal
+     
+    //     Route::post('create_terminal',[AdminController::class,'create_terminal']);
+    //     Route::get('create_a_terminal',[AdminController::class,'create_a_terminal']);
+    //     Route::get('all_terminal',[AdminController::class,'all_terminal']);
+
+       
+    // });
+    
+
+
+
+

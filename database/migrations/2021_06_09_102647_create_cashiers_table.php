@@ -14,14 +14,15 @@ class CreateCashiersTable extends Migration
     public function up()
     {
         Schema::create('cashiers', function (Blueprint $table) {
-            $table->id();
-            $table->integer('cashier_id');
+            $table->id('cashier_id');
             $table->integer('agent_id');
-            $table->string('status');
-            $table->integer('cash_allocated');
-            $table->integer('cash_remitted');
+            $table->string('cashier_name')->nullable();
+            $table->string('status')->nullable();//blocked/or not blocked
             $table->string('area')->nullable();
+            $table->string('state')->nullable();
             $table->string('phone')->nullable();
+            $table->integer('cash_allocated')->nullable();
+            $table->integer('cash_remitted')->nullable();
             $table->string('cashier_code');
             $table->string('cashier_password');
             $table->timestamps();

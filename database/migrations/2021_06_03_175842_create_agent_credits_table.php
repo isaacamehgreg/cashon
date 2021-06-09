@@ -16,7 +16,9 @@ class CreateAgentCreditsTable extends Migration
         Schema::create('agent_credits', function (Blueprint $table) {
             $table->id();
             $table->integer('agent_id');
-            $table->integer('credit');
+            $table->integer('cash_allocated')->nullable();
+            $table->integer('cash_remitted')->nullable();
+            $table->integer('pending')->nullable();;// difference allocated and remitted
             $table->timestamps();
         });
     }

@@ -40,17 +40,19 @@ class AdminController extends Controller
 
     public function credit_an_agent(Request $request){
       
-        $insert = DB::table('agent_credits')->insert([
-            'agent_id'=>$request->input('agent'),
-            'credit'=>$request->input('credit'),
-           
-        ]);
-       
-        $debt = DB::table('debts')->insert([
-            'agent_id'=>$request->input('agent'),
-            'dues_to_be_paid'=>$request->input('credit'),
-           
-        ]);
+        if( DB::table('agent_credits')->where('agent_id', $request->input('agent'))->first() == null){
+            $insert = DB::table('agent_credits')->insert([
+                'agent_id'=>$request->input('agent'),
+                'cash_allocated'=>$request->input('credit'),
+            ]);
+        }else{
+            $cash = DB::table('agent_credits')->where('agent_id', $request->input('agent'))->value();
+            $balance = $cash +$request->input('credit');
+            $insert = DB::table('agent_credits')->where('agent_id', $request->input('agent'))->update([ 
+                'cash_allocated'=>$balance,
+            ]);
+              
+        }
 
 
         return redirect('all_agents');
@@ -66,25 +68,13 @@ class AdminController extends Controller
 
     public function create_terminal(Request $request){
         
-        $insert = DB::table('users')->insert([
-
-            'own_by'=>$request->input('agent'),
-            'name'=>$request->input('name'),
-            'email'=>$request->input('email'),
-            'password'=>Hash::make($request->input('password')),
-            'phone'=>$request->input('phone'),
-           
-            'address'=>$request->input('address'),
-            'state'=>$request->input('state'),
-            'unhash'=>$request->input('password'),
-            'role'=>'terminal',
-        ]);
-        
-        $terminal= DB::table('terminal_creds')->insert([
-           'agent_id'=>$request->input('agent'),
-           'cashier_id'=>$request->input('agent').random_int(1000,2000),
-           'password'=>$request->input('password'),
-        ]);
+        $cashier= DB::table('cashiers')->insert([
+            'agent_id'=>$request->input('agent'),
+            'area'=>$request->input('area'),
+            'area'=>$request->input('area'),
+            'cashier_code'=>$request->input('code'),
+            'password'=>$request->input('password'),
+         ]);
 
         return redirect('all_terminal');
         
