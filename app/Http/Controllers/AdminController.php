@@ -99,4 +99,26 @@ class AdminController extends Controller
         $debts = DB::table('debts')->get();     
         return view('admin.debt_summary')->with(['debts'=>$debts,]);
     }
+
+    //games
+    public function create_game(Request $request){
+        $insert = DB::table('games')->insert([
+            'draw'=>$request->input('draw'),
+            'game_code'=>$request->input('game_code'),
+            'day'=>$request->input('day'),
+            'time'=>$request->input('time'),
+            'game_name'=>$request->input('game_name'),
+            '2'=>$request->input('2'),
+            '3'=>$request->input('3'),
+            '4'=>$request->input('4'),
+            '5'=>$request->input('5'),
+
+        ]);
+        return redirect('game.all_games');
+    }
+
+    public function all_games(){
+        $games = DB::table('games')->get();
+        return view('game.all_games')->with(['games'=>$games,]);
+    }
 }

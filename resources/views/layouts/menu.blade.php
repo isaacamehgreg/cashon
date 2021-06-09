@@ -126,16 +126,13 @@
           <div class="collapse" id="games">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="all-games.html"> All Games </a>
+                <a class="nav-link" href="/all-games"> All Games </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="games-played.html"> Games Played </a>
+                <a class="nav-link" href="/create_game"> Create Games </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="create-games.html"> Create Games </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="edit-games.html"> Edit Game Winning </a>
+                <a class="nav-link" href="/game_control"> Game Control </a>
               </li>
             </ul>
           </div>

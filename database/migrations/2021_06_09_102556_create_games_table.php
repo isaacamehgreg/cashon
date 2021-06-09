@@ -20,6 +20,10 @@ class CreateGamesTable extends Migration
             $table->string('day');
             $table->integer('time');
             $table->string('game_name');
+            $table->integer('2');
+            $table->integer('3');
+            $table->integer('4');
+            $table->integer('5');
             $table->timestamps();
         });
     }

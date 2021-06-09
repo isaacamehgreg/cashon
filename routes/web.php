@@ -70,6 +70,16 @@ Route::get('debt_summary',[AdminController::class,'debt_summary']);
 Route::get('agent',[AgentController::class,'index']);
 Route::get('all_terminal',[AgentController::class,'all_terminal']);
 
+//games route
+Route::view('create_game', 'game.create_game');
+Route::post('create_game', [AdminController::class,'create_game']);
+Route::post('all_games', [AdminController::class,'all_games']);
+
+
+
+
+
+
 
 
 

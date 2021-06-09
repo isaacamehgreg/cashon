@@ -20,32 +20,38 @@
                   <thead>
                     <tr>
                       
-                      <th> Name </th>
-                      <th> email </th>
-                      <th> phone </th>
-                      <th> Area in Charge </th>
-                      <th> No. of terminals </th>
-                      <th> revenue paid </th>
-                      <th> payment due </th>
+                      <th> Day </th>
+                      <th> Game Name </th>
+                      <th> Draw </th>
+                      <th> Game Code </th>
+                      <th> Game Time </th>
+                      <th> 2 combination </th>
+                      <th> 3 combination </th>
+                      <th> 4 combination </th>
+                      <th> 5 combination </th>
                       {{-- <th> Edit </th> --}}
-                      <th> block </th>
+                      <th> edit </th>
                     </tr>
                   </thead>
                   <tbody>
-                   @foreach ($agents as $agent)
+                   @foreach ($games as $game)
                        
                 
                     <tr>
-                   
-                      <td>{{$agent->name}}</td>
-                      <td>{{$agent->email}}</td>
-                      <td>{{$agent->phone}}</td>
-                      <td>{{$agent->state}}</td>
-                      <td>{{count(DB::table('users')->where('own_by', $agent->id)->get())}}</td>
-                      <td>agents own terminal but then terminal are users</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('credit')}}</td>
-                      {{-- <td><button type="button" class="btn btn-primary btn-sm">edit</button></td> --}}
-                      <td><button type="button" class="btn btn-danger btn-sm">block</button></td>
+                      <td>{{$game->day}}</td>
+                      <td>{{$game->game_name}}</td>
+                      <td>{{$game->draw}}</td>
+                      <td>{{$game->game_code}}</td>
+                      
+                      <td>{{$game->time}}</td>
+                      <td>{{$game->2}}</td>
+                      <td>{{$game->3}}</td>
+                      <td>{{$game->4}}</td>
+                      <td>{{$game->5}}</td>
+               
+                      
+            
+                      <td><button type="button" class="btn btn-secondary btn-sm">block</button></td>
                     </tr>
 
                    @endforeach
