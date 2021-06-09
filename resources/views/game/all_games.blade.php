@@ -30,7 +30,7 @@
                       <th> 4 combination </th>
                       <th> 5 combination </th>
                       {{-- <th> Edit </th> --}}
-                      <th> edit </th>
+                      
                     </tr>
                   </thead>
                   <tbody>
@@ -44,14 +44,14 @@
                       <td>{{$game->game_code}}</td>
                       
                       <td>{{$game->time}}</td>
-                      <td>{{$game->2}}</td>
-                      <td>{{$game->3}}</td>
-                      <td>{{$game->4}}</td>
-                      <td>{{$game->5}}</td>
+                      <td>{{$game->combo2}}</td>
+                      <td>{{$game->combo3}}</td>
+                      <td>{{$game->combo4}}</td>
+                      <td>{{$game->combo5}}</td>
                
                       
             
-                      <td><button type="button" class="btn btn-secondary btn-sm">block</button></td>
+                      <td><a href="/edit_game/{{$game->id}}" class="btn btn-warning btn-sm">Edit</a></td>
                     </tr>
 
                    @endforeach

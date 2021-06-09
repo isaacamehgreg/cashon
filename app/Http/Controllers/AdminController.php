@@ -108,17 +108,25 @@ class AdminController extends Controller
             'day'=>$request->input('day'),
             'time'=>$request->input('time'),
             'game_name'=>$request->input('game_name'),
-            '2'=>$request->input('2'),
-            '3'=>$request->input('3'),
-            '4'=>$request->input('4'),
-            '5'=>$request->input('5'),
+            'combo2'=>$request->input('2'),
+            'combo3'=>$request->input('3'),
+            'combo4'=>$request->input('4'),
+            'combo5'=>$request->input('5'),
 
         ]);
-        return redirect('game.all_games');
+        return redirect('all_games');
     }
 
     public function all_games(){
+        
         $games = DB::table('games')->get();
         return view('game.all_games')->with(['games'=>$games,]);
+    }
+
+    public function edit_games($id){
+        
+        $games = DB::table('games')->where('id',$id)->first();
+        
+        return view('game.edit_game')->with(['games'=>$games,]);
     }
 }

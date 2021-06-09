@@ -16,7 +16,7 @@
               <div class="col-lg-6 mx-auto grid-margin">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title text-center">Create Game</h4>
+                      <h4 class="card-title text-center">Edit Game</h4>
                       <form method="post" action="create_game" class="form-sample"> @csrf
                         <div class="row">
                           <div class="col-md-12">

@@ -14,16 +14,6 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/logout', function () {
     Auth::logout();
@@ -73,7 +63,9 @@ Route::get('all_terminal',[AgentController::class,'all_terminal']);
 //games route
 Route::view('create_game', 'game.create_game');
 Route::post('create_game', [AdminController::class,'create_game']);
-Route::post('all_games', [AdminController::class,'all_games']);
+Route::get('all_games', [AdminController::class,'all_games']);
+Route::get('edit_game/{id}', [AdminController::class,'edit_games']);
+Route::get('edit_a_game/{id}', [AdminController::class,'edit_a_games']);
 
 
 
