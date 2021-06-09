@@ -14,21 +14,29 @@ class CreateBetsTable extends Migration
     public function up()
     {
         Schema::create('bets', function (Blueprint $table) {
-            $table->id();
-            $table->string('agent_id');
-            $table->string('terminal_id');
-            $table->string('bet_code');
+            $table->id(); 
+            $table->string('cashier_id');
+            $table->string('game_code');
+           
             $table->integer('n1');
             $table->integer('n2');
             $table->integer('n3');
             $table->integer('n4');
             $table->integer('n5');
-            $table->string('status');#boolean /about_to_start/win/lost/canceled/paid/expired/
+            $table->integer('n6')->nullable();
             $table->integer('stake');
-            $table->integer('potential_winning')->nullable();
-            $table->string('ticket_number')->nullable();
+
+            $table->integer('bet_code'); 
             $table->string('result')->nullable();
-            $table->integer('combination')->nullable();
+            
+            $table->string('ticket_number')->nullable();
+         
+            $table->integer('min_potential_winning')->nullable();
+            $table->integer('max_potential_winning')->nullable();
+           
+            $table->string('status')->nullable();#boolean /pending/win/lost/canceled
+           
+          
             $table->timestamps();
         });
     }
