@@ -31,12 +31,12 @@ Route::post('login', function (Request $request) {
     $cashier_code = $request->input('cashier_code');
     $cashier_password = $request->input('password');
     $cashier_id = DB::table('cashiers')->where('cashier_code',$cashier_code)->where('cashier_password',$cashier_password)->value('id');
+
     if($cashier_id != null){
       return response()->json([
-          'status'=>"success",
+          'status'=>'success',
           'cashier_id'=>$cashier_code,
-           
-      ])
+       ]);
     }
 });
 
