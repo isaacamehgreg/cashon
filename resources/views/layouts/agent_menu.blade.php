@@ -3,18 +3,18 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="profile-image">
-                  <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-                  <div class="dot-indicator bg-success"></div>
+                 
+                  <div class="dot-indicator bg-info"></div>
                 </div>
                 <div class="text-wrapper">
-                  <p class="profile-name">Allen Moreno</p>
+                  <p class="profile-name">{{Auth::user()->name}}</p>
                   <p class="designation">Agent</p>
                 </div>
               </a>
             </li>
             <li class="nav-item nav-category">Main Menu</li>
             <li class="nav-item">
-              <a class="nav-link" href="index2.html">
+              <a class="nav-link" href="/dashboard">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
@@ -28,16 +28,22 @@
               <div class="collapse" id="terminal">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="all-terminals2.html"> All Terminals </a>
+                    <a class="nav-link" href="/agent/terminals"> All Terminals </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="add-terminal2.html"> Add Terminal </a>
+                    <a class="nav-link" href="/agent/add_terminal"> Add Terminal </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="allocate-credit2.html"> Allocate credit </a>
+                    <a class="nav-link" href="agent/credit_terminal"> Allocate credit </a>
                   </li>
                 </ul>
               </div>
+              <li class="nav-item">
+                <a class="nav-link" href="/logout">
+                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <span class="menu-title">logout</span>
+                </a>
+              </li>
             </li>
           </ul>
         </nav>

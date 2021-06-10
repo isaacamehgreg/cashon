@@ -207,15 +207,24 @@ Route::get('/winners', function(){
 
 //..........................................
 
-    // Route::group(['prefix'=>'agent','as'=>'agent'], function(){
-    //     //terminal
-     
-    //     Route::post('create_terminal',[AdminController::class,'create_terminal']);
-    //     Route::get('create_a_terminal',[AdminController::class,'create_a_terminal']);
-    //     Route::get('all_terminal',[AdminController::class,'all_terminal']);
 
-       
-    // });
+        //agents
+     
+      
+        Route::get('agent/terminal',function(){
+           
+        });
+        Route::get('agent/add_terminal',function(){
+
+        });
+        Route::get('agent/terminals',function(){
+            return view('agent.all_terminal');
+        });
+        Route::get('agent/credit_terminal',function(){
+            return view('agent.credit_terminal');
+        });
+
+
     
 
 

@@ -25,9 +25,10 @@
                       <th> phone </th>
                       <th> Area in Charge </th>
                       <th> No. of terminals </th>
-                      <th> revenue paid </th>
-                      <th> payment due </th>
-                      {{-- <th> Edit </th> --}}
+                      <th> Amount Allocated </th>
+                      <th> Amount Remited </th>
+                      <th> Amount Pending </th>
+                      <th> Resolve </th>
                       <th> block </th>
                     </tr>
                   </thead>
@@ -42,9 +43,10 @@
                       <td>{{$agent->phone}}</td>
                       <td>{{$agent->state}}</td>
                       <td>{{count(DB::table('users')->where('own_by', $agent->id)->get())}}</td>
-                      <td>agents own terminal but then terminal are users</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('credit')}}</td>
-                      {{-- <td><button type="button" class="btn btn-primary btn-sm">edit</button></td> --}}
+                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('cash_allocated') ?? 0}}</td>
+                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('cash_remitted') ?? 0}}</td>
+                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('pending') ?? 0}}</td>
+                      <td><button type="button" class="btn btn-success btn-sm">Resolve</button></td>
                       <td><button type="button" class="btn btn-danger btn-sm">block</button></td>
                     </tr>
 

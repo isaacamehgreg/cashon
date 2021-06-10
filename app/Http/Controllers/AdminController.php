@@ -33,17 +33,21 @@ class AdminController extends Controller
         $agents = DB::table('users')->where('role','agent')->get();     
         return view('admin.all_agent')->with(['agents'=>$agents,]);
     }
+
     public function credit_agent(){
+        
         $agents = DB::table('users')->where('role','agent')->get();     
         return view('admin.credit_agent')->with(['agents'=>$agents,]);
     }
 
     public function credit_an_agent(Request $request){
-      
+         
         if( DB::table('agent_credits')->where('agent_id', $request->input('agent'))->first() == null){
+
             $insert = DB::table('agent_credits')->insert([
                 'agent_id'=>$request->input('agent'),
                 'cash_allocated'=>$request->input('credit'),
+
             ]);
         }else{
             $cash = DB::table('agent_credits')->where('agent_id', $request->input('agent'))->value();

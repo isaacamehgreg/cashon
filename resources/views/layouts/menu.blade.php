@@ -39,19 +39,18 @@
       <ul class="nav">
         <li class="nav-item nav-profile">
           <a href="#" class="nav-link">
-            <div class="profile-image">
-              <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
-              <div class="dot-indicator bg-success"></div>
-            </div>
+         
             <div class="text-wrapper">
-              <p class="profile-name">Allen Moreno</p>
-              <p class="designation">Agent</p>
+              <p class="profile-name">{{Auth::user()->name}}</p>
+              
             </div>
           </a>
         </li>
+
         <li class="nav-item nav-category">Main Menu</li>
+        @if(Auth::user()->role == null || Auth::user()->role == '')
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="/dashboard">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Dashboard</span>
           </a>
@@ -62,24 +61,14 @@
             <span class="menu-title">Summary Sheets</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/debt_summary">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Debt Summary</span>
-          </a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link" href="payment-history.html">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Payment History</span>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sub-agents.html">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Sub Agents</span>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#agt" aria-expanded="false" aria-controls="agt">
             <i class="menu-icon typcn typcn-document-add"></i>
@@ -100,6 +89,10 @@
             </ul>
           </div>
         </li>
+
+        @endif
+
+        @if(Auth::user()->role == 'agent')
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#terminal" aria-expanded="false" aria-controls="agt">
             <i class="menu-icon typcn typcn-document-add"></i>
@@ -117,6 +110,8 @@
             </ul>
           </div>
         </li>
+        @endif
+
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#games" aria-expanded="false" aria-controls="games">
             <i class="menu-icon typcn typcn-document-add"></i>
@@ -153,6 +148,13 @@
               </li>
             </ul>
           </div>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Logout</span>
+          </a>
         </li>
       </ul>
     </nav>

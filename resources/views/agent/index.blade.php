@@ -15,25 +15,43 @@
           <div class="content-wrapper">
             <!-- Page Title Header Ends-->
             <div class="row">
-              <div class="col-md-3 grid-margin stretch-card">
+              <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="d-flex align-items-center pb-2">
                           <div class="dot-indicator bg-danger mr-2"></div>
-                          <p class="mb-0">Agent Debt($261,560)</p>
+                          <p class="mb-0">Amount Allocated(N{{DB::table('agent_credits')->where('agent_id',Auth::user()->id)->value('cash_allocated') ?? 0}})</p>
                         </div>
-                        <h4 class="font-weight-semibold">$266,823</h4>
+                        <h4 class="font-weight-semibold">N{{DB::table('agent_credits')->where('agent_id',Auth::user()->id)->value('cash_allocated') ?? 0}}</h4>
                         <div class="progress progress-md">
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
+                          <div class="progress-bar bg-success" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 grid-margin stretch-card">
+              <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="d-flex align-items-center pb-2">
+                          <div class="dot-indicator bg-danger mr-2"></div>
+                          <p class="mb-0">Amount Remitted(N{{DB::table('agent_credits')->where('agent_id',Auth::user()->id)->value('cash_remitted') ?? 0}})</p>
+                        </div>
+                        <h4 class="font-weight-semibold">N{{DB::table('agent_credits')->where('agent_id',Auth::user()->id)->value('cash_remitted') ?? 0}}</h4>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-info" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
@@ -51,14 +69,51 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 grid-margin stretch-card">
+              <div class="col-md-4 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-12">
                         <div class="d-flex align-items-center pb-2">
                           <div class="dot-indicator bg-danger mr-2"></div>
-                          <p class="mb-0">Total Payments Today</p>
+                          <p class="mb-0">Total Games Played</p>
+                        </div>
+                        <h4 class="font-weight-semibold">$0</h4>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="d-flex align-items-center pb-2">
+                          <div class="dot-indicator bg-danger mr-2"></div>
+                          <p class="mb-0">Total Winnings</p>
+                        </div>
+                        <h4 class="font-weight-semibold">$0</h4>
+                        <div class="progress progress-md">
+                          <div class="progress-bar bg-warning" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="d-flex align-items-center pb-2">
+                          <div class="dot-indicator bg-danger mr-2"></div>
+                          <p class="mb-0">Total Lost</p>
                         </div>
                         <h4 class="font-weight-semibold">$0</h4>
                         <div class="progress progress-md">
@@ -69,24 +124,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="d-flex align-items-center pb-2">
-                          <div class="dot-indicator bg-danger mr-2"></div>
-                          <p class="mb-0">Other Receipts(Today)</p>
-                        </div>
-                        <h4 class="font-weight-semibold">0</h4>
-                        <div class="progress progress-md">
-                          <div class="progress-bar bg-danger" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="78"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+ 
             </div>
             <div class="row">
                 <div class="col-md-12 grid-margin">
