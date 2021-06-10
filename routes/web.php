@@ -6,6 +6,7 @@ use App\Models\Bet;
 use App\Models\GamesPicked;
 use App\Models\Multiplier;
 use App\Models\User;
+use App\Models\Cashier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -214,19 +215,19 @@ Route::get('/winners', function(){
         Route::get('agent/terminal',function(){
            
         });
-        Route::get('agent/add_terminal',function(){
-
+        Route::get('_add_terminal',function(){
+            return view('agent.create_terminal');
         });
         Route::get('agent/terminals',function(){
             return view('agent.all_terminal');
         });
-        Route::get('agent/credit_terminal',function(){
-            return view('agent.credit_terminal');
+        Route::get('_credit',function(){
+            $cashiers= Cashier::all();
+            return view('agent.credit_terminal')->with(['cashiers'=>$cashiers]);
         });
 
 
     
-
 
 
 

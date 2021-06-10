@@ -6,7 +6,7 @@
      <!-- partial -->
      <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('layouts.menu')
+      @include('layouts.agent_menu')
 
       
         <!-- partial -->
@@ -20,8 +20,8 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Select </label>
                             <select name="agent" class="form-control form-control-lg" id="exampleFormControlSelect1">
-                              <option>--select agent to credit--</option>
-                              @foreach ($cashier as $cashier)
+                              <option>--select cashier to credit--</option>
+                              @foreach ($cashiers as $cashier)
                                   <option value="{{$cashier->id}}">{{$cashier->name}}</option>
                               @endforeach
                               
@@ -32,7 +32,7 @@
                         <label for="amount">Enter Amount</label>
                         <input type="number" name="credit" class="form-control" id="amount" placeholder="Credit allowance">
                       </div>
-                      <button type="submit" class="btn btn-success mr-2">Pay</button>
+                      <button type="submit" class="btn btn-success mr-2">Credit</button>
                 
                     </form>
                   </div>

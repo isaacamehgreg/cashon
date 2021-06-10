@@ -8,7 +8,7 @@
                 </div>
                 <div class="text-wrapper">
                   <p class="profile-name">{{Auth::user()->name}}</p>
-                  <p class="designation">Agent</p>
+                  <p class="designation">N{{DB::table('agent_credits')->where('agent_id',Auth::user()->id)->value('cash_remitted') ?? 0}}</p>
                 </div>
               </a>
             </li>
@@ -31,10 +31,10 @@
                     <a class="nav-link" href="/agent/terminals"> All Terminals </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/agent/add_terminal"> Add Terminal </a>
+                    <a class="nav-link" href="_add_terminal"> Add Terminal </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="agent/credit_terminal"> Allocate credit </a>
+                    <a class="nav-link" href="/_credit"> Allocate credit </a>
                   </li>
                 </ul>
               </div>
