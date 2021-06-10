@@ -132,7 +132,7 @@
                     <div class="card-body">
                       <div class="d-flex mb-1 align-items-center justify-content-between">
                         <h4 class="card-title mb-0">Due statement of account</h4>
-                        <button class="btn btn-primary">Show All</button>
+                        <button class="btn btn-primary">Show All ({{count($cashiers)}})</button>
                       </div>
                       <div class="d-flex align-items-center justify-content-between">
                         <div class="form-group" style="width: 100px;">
@@ -155,90 +155,36 @@
                         <table class="table table-striped table-hover">
                           <thead>
                             <tr>
-                              <th>S/N</th>
-                              <th>Date</th>
-                              <th>Op.Bal.</th>
-                              <th>Lotto</th>
-                              <th>Comm.</th>
-                              <th>Airtime</th>
-                              <th>Comm.</th>
-                              <th>Net Sales.</th>
-                              <th>Winn.</th>
-                              <th>Cash</th>
-                              <th>Reversal</th>
+                              
+                              <th>Cashier Name</th>
+                              <th>Cashier Code</th>
+                              <th>Cash Allocated</th>
+                              <th>Cash Remitted</th>
+                              <th>State</th>
+                              <th>Status</th>
+                              <th>Games played</th>
+                              <th>Wins</th>
+                              <th>Lost</th>
+                              <th></th>
+                              
                             </tr>
                           </thead>
                           <tbody>
+                            @foreach($cashiers as $cashier)
                             <tr>
-                              <td>1</td>
-                              <td>15 APR</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($25,200)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>$0</td>
+                              <td>{{$cashier->cashier_name}}</td>
+                              <td>{{$cashier->cashier_code}}</td>
+                              <td class="text-danger">N {{$cashier->cash_allocated ?? 0}}</td>
+                              <td class="text-success">N {{$cashier->cash_remitted  ?? 0}}</td>
+                              <td >{{$cashier->state}}</td>
+                              <td>{{$cashier->status ?? 'regular'}}</td>
+                              <td class="text-primary">{{$cashier->status}}</td>
+                              <td>{{$cashier->status}}</td>
+                              <td>{{$cashier->status}}</td>
+                              <td><button class="btn btn-primary">block</button></td>
+                             
                             </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>15 APR</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($25,200)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>15 APR</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($25,200)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>15 APR</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($25,200)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <td>15 APR</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($13,092)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>#377,708</td>
-                              <td class="text-danger">($25,200)</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                              <td>$0</td>
-                            </tr>
+                            @endforeach
                           </tbody>
                         </table>
                       </div>

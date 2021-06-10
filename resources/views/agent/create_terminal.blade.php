@@ -1,4 +1,4 @@
-cas@extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 {{-- //////     --}}
 
@@ -18,19 +18,11 @@ cas@extends('layouts.app')
                   <form method="post" action="create_terminal" class="forms-sample">
                     @csrf
                     
-                    <div class="form-group">
-                      <label for="exampleInputName1">Agent Incharge</label>
-                      
-                       <select class="form-control" name="agent" id="exampleInputCity1">
-                        <option disabled selected>--Select agent incharge--</option>
-                        @foreach ($agents as $agent)
-                          <option value="{{$agent->id}}">{{$agent->name}}</option>  
-                        @endforeach
-              
-                       <select>
+                
 
-                      
-                    </div>
+                    
+                      <input type="text" name="agent" class="form-control" id="exampleInputName1" placeholder="Name" value="{{Auth::user()->id}}" hidden>
+                    
 
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
@@ -39,7 +31,7 @@ cas@extends('layouts.app')
                 
                     <div class="form-group">
                       <label for="exampleInputCity1">Area</label>
-                      <input type="text" name="address" class="form-control" id="exampleInputCity1" placeholder="Area">
+                      <input type="text" name="area" class="form-control" id="exampleInputCity1" placeholder="Area">
                     </div>
                     <div class="form-group">
                       <label for="exampleInputCity1">Phone</label>

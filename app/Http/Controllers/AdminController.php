@@ -74,10 +74,11 @@ class AdminController extends Controller
         
         $cashier= DB::table('cashiers')->insert([
             'agent_id'=>$request->input('agent'),
+            'cashier_name'=>$request->input('name'),
             'area'=>$request->input('area'),
-            'area'=>$request->input('area'),
+            'phone'=>$request->input('phone'),
             'cashier_code'=>$request->input('code'),
-            'password'=>$request->input('password'),
+            'cashier_password'=>$request->input('password'),
          ]);
 
         return redirect('all_terminal');

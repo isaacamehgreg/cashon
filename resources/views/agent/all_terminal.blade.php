@@ -17,23 +17,23 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h3>Total No: 457</h3>
+                      <h3>Total No: {{count($cashiers)}}</h3>
                       <table class="table table-striped">
                         <thead>
                           <tr>
-                            <th> S/n </th>
-                            <th> Terminal Id </th>
-                            <th> Location </th>
-                            <th> Assigned agent </th>
-                            <th> payment due </th>
-                            <th>Credit Status</th>
-                            <th> Block </th>
+                            
+                            <th> Cashier Name </th>
+                            <th> Cashier Code </th>
+                            <th> Cash Allocated </th>
+                            <th> Cash Remitted </th>
+                            <th>Area</th>
+                            <th> Phone </th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr>
-                            <td> 1 </td>
-                            <td>NG-IM-0001-C0001</td>
+                            <td> </td>
+                            <td>{{$cashier->name}}</td>
                             <td>5 Eru ifa street, Lekki</td>
                             <td>NG-IM-0001</td>
                             <td>$36,675</td>

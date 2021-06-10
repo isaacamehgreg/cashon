@@ -31,7 +31,9 @@ Route::get('/dashboard', function () {
     $play = DB::table('games_played')->get(); 
 
     if(Auth::user()->role == 'agent'){
-        return view('agent.index')->with(['play',$play]);
+        $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+        
+        return view('agent.index')->with(['play'=>$play, 'cashiers'=>$cashiers]);
     }
     
     return view('dashboard')->with(['play',$play]);
@@ -217,12 +219,17 @@ Route::get('/winners', function(){
         });
         Route::get('_add_terminal',function(){
             return view('agent.create_terminal');
+
         });
         Route::get('agent/terminals',function(){
-            return view('agent.all_terminal');
+
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+           // dd($cashiers);
+            return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
         });
         Route::get('_credit',function(){
-            $cashiers= Cashier::all();
+            
+            $cashiers= Cashier::where('agent_id',Auth::user()->id);
             return view('agent.credit_terminal')->with(['cashiers'=>$cashiers]);
         });
 
