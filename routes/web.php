@@ -233,6 +233,7 @@ Route::get('/winners', function(){
                 ]);
 
         });
+
         Route::get('_all_terminal',function(){
             $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
             return view('agent.all_terminal')->with([
@@ -258,25 +259,26 @@ Route::get('/winners', function(){
         });
 
 
-      
-        Route::get('agent/terminal',function(){
-           
-        });
-        Route::get('_add_terminal',function(){
-            return view('agent.create_terminal');
+        // Route::get('agent/terminals',function(){
 
-        });
-        Route::get('agent/terminals',function(){
+        //     $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+        //    // dd($cashiers);
+        //     return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
+        // });
 
+
+        Route::get('_credit',function(){            
             $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
-           // dd($cashiers);
-            return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
-        });
-        Route::get('_credit',function(){
-            
-            $cashiers= Cashier::where('agent_id',Auth::user()->id);
             return view('agent.credit_terminal')->with(['cashiers'=>$cashiers]);
         });
+
+        Route::get('_credit_a_cashier',function(Request $request){            
+            $cashier = Cashier::where('cashier_id', $cashier_id)->update([
+                'cashier_allocated'->$request->input('credit'),
+            ]);
+            return redirect('_all_terminal');
+        });
+
 
 
     

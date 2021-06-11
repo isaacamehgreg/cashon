@@ -28,17 +28,19 @@
                             <th> Cash Remitted </th>
                             <th>Area</th>
                             <th> Phone </th>
+
                           </tr>
                         </thead>
                         <tbody>
                         @foreach($cashiers as $cashier)
                           <tr>
                             
-                            <td>{{$cashier->name}}</td>
-                            <td>5 Eru ifa street, Lekki</td>
-                            <td>NG-IM-0001</td>
-                            <td>$36,675</td>
-                            <td>$10,000</td>
+                            <td>{{$cashier->cashier_name}}</td>
+                            <td>{{$cashier->cashier_code}}</td>
+                            <td>{{$cashier->cashier_allocated ?? 0}}</td>
+                            <td>{{$cashier->cashier_remitted ?? 0}}</td>
+                            <td>{{$cashier->area}}</td>
+                             <td>{{$cashier->phone}}</td>
                             <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
                           </tr>
                           @endforeach

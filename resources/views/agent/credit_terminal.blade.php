@@ -16,13 +16,13 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Allocate Credit to your Cashier</h4>
-                    <form method="post" action="/_credit_an_agent" class="forms-sample">@csrf
+                    <form method="post" action="/_credit_a_cashier" class="forms-sample">@csrf
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Select </label>
                             <select name="agent" class="form-control form-control-lg" id="exampleFormControlSelect1">
                               <option>--select cashier to credit--</option>
                               @foreach ($cashiers as $cashier)
-                                  <option value="{{$cashier->id}}">{{$cashier->name}}</option>
+                                  <option value="{{$cashier->cashier_id}}">{{$cashier->cashier_name}}</option>
                               @endforeach
                               
                               
