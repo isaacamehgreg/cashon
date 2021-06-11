@@ -15,10 +15,7 @@ class CreateGamesPickedsTable extends Migration
     {
         Schema::create('games_played', function (Blueprint $table) {
             $table->id();
-            $table->string('terminal_id');
-            $table->string('game_code');//random code to differentiate game played by a single user at a single time// is also used to identify a user
             $table->integer('number');
-            $table->integer('paid');
             $table->timestamps();
         });
     }

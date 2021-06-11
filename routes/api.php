@@ -75,6 +75,8 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
    $game_code = $bet['game_code'];
    $phone = $bet['phone_number'];
    $games =$bet['games'];
+   $numbers =$bet['all_numbers'];
+
 
 
  
@@ -119,20 +121,28 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
 
        ]);
-
-
-       // submit numbers for comparism algorithm
-       
+    
+       // submit numbers for comparism algorithm  
      
-   }
+    }
+
+    foreach($numbers as $number){
+        $insert = DB::table('games_played')->insert([
+            'number'=>$number['n'],
+            'created_at'=>Carbon::now()
+        ]);
+    }
+
+
+
+
+
+
 
 
    //get all related ticket
    $tickets = Bet::where('ticket_number',$ticket_number )->get();
    
-   
-
-
 
 //send sms to user phone_number that he has played and 
             // $curl = curl_init();
@@ -165,6 +175,8 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
           'status'=> 'success',
           'games'=>$tickets
     ],200);
+
+
 });
 
 
