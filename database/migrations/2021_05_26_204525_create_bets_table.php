@@ -28,7 +28,7 @@ class CreateBetsTable extends Migration
             $table->integer('n6')->nullable();
             $table->integer('stake');
 
-            $table->integer('bet_code'); 
+            $table->string('bet_code'); 
             $table->string('result')->nullable();
             
             $table->string('ticket_number')->nullable();

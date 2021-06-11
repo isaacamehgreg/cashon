@@ -28,13 +28,14 @@ Route::post('login', function (Request $request) {
     $cashier_code = $request->input('cashier_code');
     $cashier_password = $request->input('cashier_password');
     
-    return response()->json($cashier_password);
+   
     $cashier_id = DB::table('cashiers')->where('cashier_code',$cashier_code)->where('cashier_password',$cashier_password)->value('cashier_id');
 
     if($cashier_id != null){
       return response()->json([
           'status'=>'success',
           'cashier_id'=>$cashier_id,
+          'cashier_balance'=>DB::table('cashiers')->where('cashier_id',$cashier_id)->value('cash_allocated'),
 
        ]);
     }else{
@@ -87,8 +88,9 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
    foreach($games as $game){
        $info = Game::where('game_code',$game_code)->first();
+      
        //insert in to bets and submit numbers for comparism
-       $insert = DB::table('bet')->insert([
+       $insert = DB::table('bets')->insert([
            'cashier_id'=>$cashier_id,
            'game_code'=> $game_code,
            'phone_number'=>$phone,
@@ -101,13 +103,13 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
            'stake'=>$game['stake'],
            'bet_code'=>$game['n1'].$game['n2'].$game['n3'].$game['n4'].$game['n5'].$game['n6'],
            'ticket_number'=>$ticket_number,
-           'min_potential_winning'=> (int)$info->combo2 * (int)$game['stake'], 
-           'max_potential_winning'=> (int)$info->combo6 * (int)$game['stake'],
+           'min_potential_winning'=> (int)($info->combo2) * (int)$game['stake'], 
+           'max_potential_winning'=> (int)($info->combo6) * (int)$game['stake'],
            'draw' =>$info->draw,
            'day' =>$info->day,
            'time' =>$info->time,
            'game_name' =>$info->game_name,
-           'combo2' =>(int)$info->combo2 * (int)$game['stake'],
+           'combo2' =>(int)($info->combo2) * (int)$game['stake'],
            'combo3' =>(int)$info->combo3 * (int)$game['stake'],
            'combo4' =>(int)$info->combo4 * (int)$game['stake'],
            'combo5' =>(int)$info->combo5 * (int)$game['stake'],
@@ -127,30 +129,30 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
 
 //send sms to user phone_number that he has played and 
-            $curl = curl_init();
-            $mgs = `congratulation on, placing a bet with CashOn Lotto, your ticket number is $ticket_number `;
+            // $curl = curl_init();
+            // $mgs = `congratulation on, placing a bet with CashOn Lotto, your ticket number is $ticket_number `;
 
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$phone.'&from=CashOn Lotto&body='.$mgs,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json',
-                'Accept: application/json'
-            ),
-            ));
+            // curl_setopt_array($curl, array(
+            // CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$phone.'&from=CashOn Lotto&body='.$mgs,
+            // CURLOPT_RETURNTRANSFER => true,
+            // CURLOPT_ENCODING => '',
+            // CURLOPT_MAXREDIRS => 10,
+            // CURLOPT_TIMEOUT => 0,
+            // CURLOPT_FOLLOWLOCATION => true,
+            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            // CURLOPT_CUSTOMREQUEST => 'POST',
+            // CURLOPT_HTTPHEADER => array(
+            //     'Content-Type: application/json',
+            //     'Accept: application/json'
+            // ),
+            // ));
 
-            $response = curl_exec($curl);
+            // $response = curl_exec($curl);
 
-            curl_close($curl);
+            // curl_close($curl);
 
 
-            //return response($response);
+         //return response($response);
 
 
 
