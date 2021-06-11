@@ -132,7 +132,7 @@
                     <div class="card-body">
                       <div class="d-flex mb-1 align-items-center justify-content-between">
                         <h4 class="card-title mb-0">Due statement of account</h4>
-                        <button class="btn btn-primary">Show All ({{count($cashiers)}})</button>
+                        <button class="btn btn-primary">Show All </button>
                       </div>
                       <div class="d-flex align-items-center justify-content-between">
                         <div class="form-group" style="width: 100px;">
