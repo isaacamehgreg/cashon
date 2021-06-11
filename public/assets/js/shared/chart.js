@@ -639,11 +639,19 @@ $(function () {
     document.getElementById('doughnut-chart-legend').innerHTML = doughnutChart.generateLegend();
   }
   if ($("#pieChart").length) {
+    var wins = 0;
+    var loss = 0;
+    var cancel = 0;
+    fetch().
+    then().
+    then().
+    catch()
     var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
     var pieChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: {
         datasets: [{
+
           data: [30, 40, 30],
           backgroundColor: [
             ChartColor[0],

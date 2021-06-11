@@ -225,17 +225,19 @@ Route::get('/winners', function(){
         
         //agent Route//////////////////////////////////////////////////////////////
         Route::get('agent',function(){
-
-            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+  
+            $bets = Bet::orderBy('created_at', 'DESC')->get();
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->orderBy('created_at', 'DESC')->get();
             return view('agent.index')->with([
                 
-                'cashiers'=>$cashiers
+                'cashiers'=>$cashiers,
+                'bets'=>$bets
                 ]);
 
         });
 
         Route::get('_all_terminal',function(){
-            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->orderBy('created_at', 'DESC')->get();
             return view('agent.all_terminal')->with([
                 
                 'cashiers'=>$cashiers
@@ -273,13 +275,20 @@ Route::get('/winners', function(){
         });
 
         Route::post('_credit_a_cashier',function(Request $request){  
-            dd((int)$request->input('cashier'));
+            $cashier_id=(int)$request->input('cashier');
+            $credit=(int)$request->input('credit');
+            
             $cashier = DB::table('cashiers')->where('cashier_id', (int)$request->input('cashier'))->update([
-                'cash_allocated'->$request->input('credit'),
+                'cash_allocated'=>$credit,
             ]);
             return redirect('_all_terminal');
         });
 
+        Route::get('_cashier/{id}',function($id){            
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->first();
+            $bets = Bet::where('cashier_id', $id)->orderBy('created_at', 'DESC')->get();
+            return view('agent.cashier')->with(['cashiers'=>$cashiers, 'bets'=>$bets]);
+        });
 
 
     

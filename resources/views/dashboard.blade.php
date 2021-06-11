@@ -24,7 +24,7 @@
                     <button type="button" class="btn btn-secondary">03/02/2019 - 20/08/2019</button>
                     <button type="button" class="btn btn-secondary"><i class="mdi mdi-chevron-right"></i></button>
                   </div>
-                  <div class="filter-wrapper">
+                  {{-- <div class="filter-wrapper">
                     <div class="dropdown toolbar-item">
                       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownsorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Day</button>
                       <div class="dropdown-menu" aria-labelledby="dropdownsorting">
@@ -33,7 +33,7 @@
                         <a class="dropdown-item" href="#">Last Year</a>
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
                 <form class="w-50" action="dotun.php">
                   <div class="form-group mb-0 row">
@@ -55,7 +55,7 @@
                     <div class="col-lg-3 col-md-6">
                       <div class="d-flex">
                         <div class="wrapper">
-                          <h3 class="mb-0 font-weight-semibold">32,451</h3>
+                          <h3 class="mb-0 font-weight-semibold">{{DB::table('users')->where('role','agent')->count()}}</h3>
                           <h5 class="mb-0 font-weight-medium text-primary">No. of Agents</h5>
                         </div>
                       </div>
@@ -63,7 +63,7 @@
                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
                       <div class="d-flex">
                         <div class="wrapper">
-                          <h3 class="mb-0 font-weight-semibold">15,236</h3>
+                          <h3 class="mb-0 font-weight-semibold">{{DB::table('cashiers')->get()->count()}}</h3>
                           <h5 class="mb-0 font-weight-medium text-primary">No. of Terminals</h5>
                         </div>
                       </div>
@@ -71,16 +71,22 @@
                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
                       <div class="d-flex">
                         <div class="wrapper">
-                          <h3 class="mb-0 font-weight-semibold">120,688</h3>
-                          <h5 class="mb-0 font-weight-medium text-primary">Today's Revenue</h5>
+                          <h3 class="mb-0 font-weight-semibold">N <?php
+                            $cash = 0;
+                            foreach (DB::table('bets')->get() as $bet ) {
+                              $cash = $cash + $bet->stake;
+                            }
+                          echo $cash;
+                          ?></h3>
+                          <h5 class="mb-0 font-weight-medium text-primary">Revenue</h5>
                         </div>
                       </div>
                     </div>
                     <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
                       <div class="d-flex">
                         <div class="wrapper">
-                          <h3 class="mb-0 font-weight-semibold">1,553</h3>
-                          <h5 class="mb-0 font-weight-medium text-primary">Today's Transactions</h5>
+                          <h3 class="mb-0 font-weight-semibold">{{DB::table('bets')->get()->count()}}</h3>
+                          <h5 class="mb-0 font-weight-medium text-primary">Total bets</h5>
                         </div>
                       </div>
                     </div>

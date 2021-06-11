@@ -37,11 +37,11 @@
                             
                             <td>{{$cashier->cashier_name}}</td>
                             <td>{{$cashier->cashier_code}}</td>
-                            <td>{{$cashier->cashier_allocated ?? 0}}</td>
-                            <td>{{$cashier->cashier_remitted ?? 0}}</td>
+                            <td>{{$cashier->cash_allocated ?? 0}}</td>
+                            <td>{{$cashier->cash_remitted ?? 0}}</td>
                             <td>{{$cashier->area}}</td>
                              <td>{{$cashier->phone}}</td>
-                            <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
+                            <td><a href="/_cashier/{{$cashier->cashier_id}}" type="button" class="btn btn-info btn-sm">view cashier</a></td>
                           </tr>
                           @endforeach
                         
