@@ -28,7 +28,7 @@
               <div class="collapse" id="terminal">
                 <ul class="nav flex-column sub-menu">
                   <li class="nav-item">
-                    <a class="nav-link" href="/agent/terminals"> All Terminals </a>
+                    <a class="nav-link" href="/_all_terminals"> All Terminals </a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/_add_terminal"> Add Terminal </a>

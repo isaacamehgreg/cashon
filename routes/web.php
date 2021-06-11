@@ -61,7 +61,7 @@ Route::get('debt_summary',[AdminController::class,'debt_summary']);
 
 //agent Route
 Route::get('agent',[AgentController::class,'index']);
-Route::get('all_terminal',[AgentController::class,'all_terminal']);
+Route::get('_all_terminal',[AgentController::class,'all_terminal']);
 
 //games route
 Route::view('create_game', 'game.create_game');
