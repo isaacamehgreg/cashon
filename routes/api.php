@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Game;
+use Carbon\Carbon as CarbonCarbon;
 
 // Route::post('/login',[AuthController::class, 'login']);
 
@@ -114,9 +115,14 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
            'combo4' =>(int)$info->combo4 * (int)$game['stake'],
            'combo5' =>(int)$info->combo5 * (int)$game['stake'],
            'combo6' =>(int)$info->combo6 * (int)$game['stake'],
+           'created_at'=>Carbon::now(),
 
 
        ]);
+
+
+       // submit numbers for comparism algorithm
+       
      
    }
 
@@ -154,9 +160,6 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
          //return response($response);
 
-
-
-//return response
     
     return response()->json([
           'status'=> 'success',
@@ -165,7 +168,60 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 });
 
 
+Route::get('bet/{cashier_id}' , function($cashier_id){
+    $bets = Bet::where('cashier_id', $cashier_id)->orderBy('created_at', 'DESC')->get();
+    if(count($bets) == 0){
+        return response()->json([
+            "mybets"=> "you dont have any bet"
+          ]);  
+    }
+    return response()->json([
+      "mybets"=> $bets
+    ]);
+});
 
+Route::get('bet/find/{cashier_id}/{ticket_number}' , function($cashier_id , $ticket_number){
+    $bets = Bet::where('cashier_id', $cashier_id)->where('ticket_number',$ticket_number)->orderBy('created_at', 'DESC')->get();
+    if(count($bets) == 0){
+        return response()->json([
+            "mybets"=> "no bet found! probably wrong ticket number"
+        ], 404);  
+    }
+    return response()->json([
+      "mybets"=> $bets
+    ],200);
+});
+
+Route::get('bet/find_phone/{cashier_id}/{phone_number}' , function($cashier_id , $phone_number){
+    $bets = Bet::where('cashier_id', $cashier_id)->where('phone_number',$phone_number)->orderBy('created_at', 'DESC')->get();
+    if(count($bets) == 0){
+        return response()->json([
+            "mybets"=> "no bet found! probably wrong phone number"
+        ], 404);  
+    }
+    return response()->json([
+      "mybets"=> $bets
+    ],200);
+});
+
+Route::post('bet/paid/{cashier_id}/{ticket_number}', function($cashier_id,$ticket_number){
+    $check= Bet::where('ticket_number', $ticket_number)->where('cashier_id', $cashier_id)->get();
+    if(count($check) == 0){
+        return response()->json([
+        'status'=>'failed',
+        'msg' =>'no ticket found'
+        ]);
+    }
+     $mark_as_paid = Bet::where('ticket_number', $ticket_number)->where('cashier_id', $cashier_id)->update([
+         'status'=>'paid',
+         'updated_at'=>Carbon::now(),
+     ]);
+
+     return response()->json([
+        'status'=>'success',
+       'msg'=> 'ticket is marked as paid',
+     ]);
+});
 
 
 
