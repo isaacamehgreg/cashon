@@ -146,27 +146,27 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
    
 
 //send sms to user phone_number that he has played and 
-            // $curl = curl_init();
-            // $mgs = `congratulation on, placing a bet with CashOn Lotto, your ticket number is $ticket_number `;
+            $curl = curl_init();
+            $mgs = `congratulation on, placing a bet with CashOn Lotto, your ticket number is $ticket_number `;
 
-            // curl_setopt_array($curl, array(
-            // CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$phone.'&from=CashOn Lotto&body='.$mgs,
-            // CURLOPT_RETURNTRANSFER => true,
-            // CURLOPT_ENCODING => '',
-            // CURLOPT_MAXREDIRS => 10,
-            // CURLOPT_TIMEOUT => 0,
-            // CURLOPT_FOLLOWLOCATION => true,
-            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            // CURLOPT_CUSTOMREQUEST => 'POST',
-            // CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Accept: application/json'
-            // ),
-            // ));
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$phone.'&from=CashOn Lotto&body='.$mgs,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept: application/json'
+            ),
+            ));
 
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-            // curl_close($curl);
+            curl_close($curl);
 
 
          //return response($response);

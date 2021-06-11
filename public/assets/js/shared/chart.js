@@ -665,7 +665,7 @@ $(function () {
           ],
         }],
         labels: [
-          'Cancle',
+          'Cancel',
           'Wins',
           'Loss',
         ]
