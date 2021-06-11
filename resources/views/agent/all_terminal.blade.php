@@ -33,7 +33,7 @@
                         <tbody>
                         @foreach($cashiers as $cashier)
                           <tr>
-                            <td> </td>
+                            
                             <td>{{$cashier->name}}</td>
                             <td>5 Eru ifa street, Lekki</td>
                             <td>NG-IM-0001</td>
