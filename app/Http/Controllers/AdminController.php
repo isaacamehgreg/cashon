@@ -50,14 +50,13 @@ class AdminController extends Controller
 
             ]);
         }else{
-            $cash = DB::table('agent_credits')->where('agent_id', $request->input('agent'))->value();
-            $balance = $cash +$request->input('credit');
+            $cash = DB::table('agent_credits')->where('agent_id', $request->input('agent') )->first();
+            $balance = $cash + $request->input('credit');
             $insert = DB::table('agent_credits')->where('agent_id', $request->input('agent'))->update([ 
                 'cash_allocated'=>$balance,
             ]);
               
         }
-
 
         return redirect('all_agents');
         
