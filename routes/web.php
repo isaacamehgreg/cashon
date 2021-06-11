@@ -261,11 +261,11 @@ Route::get('/winners', function(){
         });
 
 
-        Route::get('_add_terminals',function(){
+        Route::get('_add_terminal',function(){
 
             $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
            // dd($cashiers);
-            return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
+            return view('agent.create_terminal')->with(['cashiers'=>$cashiers]);
         });
 
 
