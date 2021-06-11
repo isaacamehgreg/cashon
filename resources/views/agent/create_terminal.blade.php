@@ -6,7 +6,7 @@
      <!-- partial -->
      <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('layouts.menu')
+      @include('layouts.agent_menu')
 
       
       <div class="main-panel">
@@ -15,7 +15,7 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Add new terminal</h4>
-                  <form method="post" action="create_terminal" class="forms-sample">
+                  <form method="post" action="_create_terminal" class="forms-sample">
                     @csrf
                     
                 

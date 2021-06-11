@@ -80,11 +80,12 @@ class AdminController extends Controller
             'cashier_password'=>$request->input('password'),
          ]);
 
+        
         return redirect('all_terminal');
         
     }
     public function all_terminal(){
-        $terminal = DB::table('users')->where('role','terminal')->get();     
+        $terminal = DB::table('cashiers')->get();     
         return view('admin.all_terminal')->with(['terminals'=>$terminal,]);
     }
 

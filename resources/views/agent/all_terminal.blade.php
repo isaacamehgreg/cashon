@@ -17,7 +17,7 @@
                 <div class="col-lg-12 grid-margin stretch-card">
                   <div class="card">
                     <div class="card-body">
-                      <h3>Total No: {{count($cashiers)}}</h3>
+                      <h3>Total No: {{count($cashiers) ?? 0}}</h3>
                       <table class="table table-striped">
                         <thead>
                           <tr>
@@ -31,6 +31,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                        @foreach($cashiers as $cashier)
                           <tr>
                             <td> </td>
                             <td>{{$cashier->name}}</td>
@@ -40,33 +41,8 @@
                             <td>$10,000</td>
                             <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
                           </tr>
-                          <tr>
-                            <td> 1 </td>
-                            <td>NG-IM-0001-C0001</td>
-                            <td>5 Eru ifa street, Lekki</td>
-                            <td>NG-IM-0001</td>
-                            <td>$36,675</td>
-                            <td>$10,000</td>
-                            <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
-                          </tr>
-                          <tr>
-                            <td> 1 </td>
-                            <td>NG-IM-0001-C0001</td>
-                            <td>5 Eru ifa street, Lekki</td>
-                            <td>NG-IM-0001</td>
-                            <td>$36,675</td>
-                            <td>$10,000</td>
-                            <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
-                          </tr>
-                          <tr>
-                            <td> 1 </td>
-                            <td>NG-IM-0001-C0001</td>
-                            <td>5 Eru ifa street, Lekki</td>
-                            <td>NG-IM-0001</td>
-                            <td>$36,675</td>
-                            <td>$10,000</td>
-                            <td><button type="button" class="btn btn-primary btn-sm">block</button></td>
-                          </tr>
+                          @endforeach
+                        
                         </tbody>
                       </table>
                     </div>

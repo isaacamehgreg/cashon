@@ -31,9 +31,9 @@ Route::get('/dashboard', function () {
     $play = DB::table('games_played')->get(); 
 
     if(Auth::user()->role == 'agent'){
-        $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+     
         
-        return view('agent.index')->with(['play'=>$play, 'cashiers'=>$cashiers]);
+        return redirect('agent');
     }
     
     return view('dashboard')->with(['play',$play]);
@@ -59,16 +59,26 @@ Route::get('all_terminal',[AdminController::class,'all_terminal']);
 //debt
 Route::get('debt_summary',[AdminController::class,'debt_summary']);
 
-//agent Route
-Route::get('agent',[AgentController::class,'index']);
-Route::get('_all_terminal',[AgentController::class,'all_terminal']);
-
 //games route
 Route::view('create_game', 'game.create_game');
 Route::post('create_game', [AdminController::class,'create_game']);
 Route::get('all_games', [AdminController::class,'all_games']);
 Route::get('edit_game/{id}', [AdminController::class,'edit_games']);
 Route::post('edit_a_game/{id}', [AdminController::class,'edit_a_games']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -210,9 +220,44 @@ Route::get('/winners', function(){
 
 //..........................................
 
-
-        //agents
+/////////agents
      
+        
+        //agent Route//////////////////////////////////////////////////////////////
+        Route::get('agent',function(){
+
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+            return view('agent.index')->with([
+                
+                'cashiers'=>$cashiers
+                ]);
+
+        });
+        Route::get('_all_terminal',function(){
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+            return view('agent.all_terminal')->with([
+                
+                'cashiers'=>$cashiers
+                ]);
+        });
+
+        Route::post('_create_terminal', function (Request $request) {
+        
+            $cashier= DB::table('cashiers')->insert([
+                'agent_id'=>$request->input('agent'),
+                'cashier_name'=>$request->input('name'),
+                'area'=>$request->input('area'),
+                'phone'=>$request->input('phone'),
+                'cashier_code'=>$request->input('code'),
+                'cashier_password'=>$request->input('password'),
+             ]);
+    
+            
+            return redirect('_all_terminal');
+            
+        }
+
+
       
         Route::get('agent/terminal',function(){
            

@@ -38,12 +38,12 @@ Route::post('login', function (Request $request) {
           'cashier_id'=>$cashier_id,
           'cashier_balance'=>DB::table('cashiers')->where('cashier_id',$cashier_id)->value('cash_allocated'),
 
-       ]);
+       ] ,200);
     }else{
         return response()->json([
             'status'=>'failed',
             'msg'=>'cashier not found',
-         ]);
+        ], 404);
     }
     return 'you did not enter anything';
 });
@@ -53,7 +53,7 @@ Route::get('games', function () {
       return response()->json([
           'status'=>'success',
           'games'=>Game::all(),
-       ]);
+      ],200);
     
 });
 
