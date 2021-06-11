@@ -261,12 +261,12 @@ Route::get('/winners', function(){
         });
 
 
-        // Route::get('agent/terminals',function(){
+        Route::get('_add_terminals',function(){
 
-        //     $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
-        //    // dd($cashiers);
-        //     return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
-        // });
+            $cashiers= Cashier::where('agent_id',Auth::user()->id)->get();
+           // dd($cashiers);
+            return view('agent.all_terminal')->with(['cashiers'=>$cashiers]);
+        });
 
 
         Route::get('_credit',function(){            
