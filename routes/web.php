@@ -272,9 +272,10 @@ Route::get('/winners', function(){
             return view('agent.credit_terminal')->with(['cashiers'=>$cashiers]);
         });
 
-        Route::get('_credit_a_cashier',function(Request $request){            
-            $cashier = Cashier::where('cashier_id', $cashier_id)->update([
-                'cashier_allocated'->$request->input('credit'),
+        Route::post('_credit_a_cashier',function(Request $request){  
+            dd((int)$request->input('cashier'));
+            $cashier = DB::table('cashiers')->where('cashier_id', (int)$request->input('cashier'))->update([
+                'cash_allocated'->$request->input('credit'),
             ]);
             return redirect('_all_terminal');
         });

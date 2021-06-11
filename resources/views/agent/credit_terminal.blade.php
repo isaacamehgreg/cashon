@@ -19,7 +19,7 @@
                     <form method="post" action="/_credit_a_cashier" class="forms-sample">@csrf
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Select </label>
-                            <select name="agent" class="form-control form-control-lg" id="exampleFormControlSelect1">
+                            <select name="cashier" class="form-control form-control-lg" id="exampleFormControlSelect1">
                               <option>--select cashier to credit--</option>
                               @foreach ($cashiers as $cashier)
                                   <option value="{{$cashier->cashier_id}}">{{$cashier->cashier_name}}</option>
