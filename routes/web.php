@@ -255,7 +255,7 @@ Route::get('/winners', function(){
             
             return redirect('_all_terminal');
             
-        }
+        });
 
 
       

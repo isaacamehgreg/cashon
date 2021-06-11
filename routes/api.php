@@ -232,7 +232,7 @@ Route::post('bet/paid/{cashier_id}/{ticket_number}', function($cashier_id,$ticke
      return response()->json([
         'status'=>'success',
        'msg'=> 'ticket is marked as paid',
-     ]);
+     ],200);
 });
 
 
