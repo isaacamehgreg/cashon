@@ -14,7 +14,7 @@ class AddResultStatusToBetsTable extends Migration
     public function up()
     {
         Schema::table('bets', function (Blueprint $table) {
-            $table->integer('result_status'); //win/lost/canceled
+            $table->string('result_status')->nullable(); //win/lost/canceled
         });
     }
 

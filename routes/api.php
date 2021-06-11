@@ -118,6 +118,7 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
            'combo5' =>(int)$info->combo5 * (int)$game['stake'],
            'combo6' =>(int)$info->combo6 * (int)$game['stake'],
            'created_at'=>Carbon::now(),
+           'result_status'=>'pending'
 
 
        ]);
