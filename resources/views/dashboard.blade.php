@@ -165,7 +165,7 @@
             <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
                 <div class="p-4 pr-5 border-bottom bg-light d-flex justify-content-between">
-                  <h4 class="card-title mb-0">Pie chart</h4>
+                  <h4 class="card-title mb-0">BET Overview</h4>
                   <id id="pie-chart-legend" class="mr-4"></id>
                 </div>
                 <div class="card-body d-flex">
@@ -270,38 +270,19 @@
                   <div class="card">
                     <div class="card-body">
                       <h4 class="card-title mb-0">Top Agents</h4>
+                      <?php $_agents = DB::table('users')->where('role', 'agent')->get();?>
+                      @foreach($_agents as $agent)
                       <div class="d-flex mt-3 py-2 border-bottom">
-                        <img class="img-sm rounded-circle" src="assets/images/faces/face3.jpg" alt="profile image">
+                        <img class="img-sm rounded-circle" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="profile image">
                         <div class="wrapper ml-2">
-                          <p class="mb-n1 font-weight-semibold">Ray Douglas</p>
-                          <small>162543</small>
+                          <p class="mb-n1 font-weight-semibold">{{$agent->name}}</p>
+                          <small>{{$agent->address}}</small>
                         </div>
-                        <small class="text-muted ml-auto">#1,000,000</small>
+                        <small class="text-muted ml-auto">Terminals owned: {{DB::table('cashiers')->where('agent_id',$agent->id)->get()->count()}}</small>
                       </div>
-                      <div class="d-flex py-2 border-bottom">
-                        <span class="img-sm rounded-circle bg-warning text-white text-avatar">OH</span>
-                        <div class="wrapper ml-2">
-                          <p class="mb-n1 font-weight-semibold">Ora Hill</p>
-                          <small>162543</small>
-                        </div>
-                        <small class="text-muted ml-auto">#560,000</small>
-                      </div>
-                      <div class="d-flex py-2 border-bottom">
-                        <img class="img-sm rounded-circle" src="assets/images/faces/face4.jpg" alt="profile image">
-                        <div class="wrapper ml-2">
-                          <p class="mb-n1 font-weight-semibold">Brian Dean</p>
-                          <small>162543</small>
-                        </div>
-                        <small class="text-muted ml-auto">#200,000</small>
-                      </div>
-                      <div class="d-flex pt-2">
-                        <span class="img-sm rounded-circle bg-success text-white text-avatar">OB</span>
-                        <div class="wrapper ml-2">
-                          <p class="mb-n1 font-weight-semibold">Olive Bridges</p>
-                          <small>162543</small>
-                        </div>
-                        <small class="text-muted ml-auto">#90,000</small>
-                      </div>
+                      @endforeach
+                   
+                    
                     </div>
                   </div>
                 </div>

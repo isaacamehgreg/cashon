@@ -652,7 +652,7 @@ $(function () {
       data: {
         datasets: [{
 
-          data: [30, 40, 30],
+          data: [3, 7, 40],
           backgroundColor: [
             ChartColor[0],
             ChartColor[1],
@@ -665,9 +665,9 @@ $(function () {
           ],
         }],
         labels: [
-          'Sales',
-          'Profit',
-          'Return',
+          'Cancle',
+          'Wins',
+          'Loss',
         ]
       },
       options: {
