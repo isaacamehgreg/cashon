@@ -104,7 +104,7 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
            'n5'=>$game['n5'],
            'n6'=>$game['n6'],
            'stake'=>$game['stake'],
-           'bet_code'=>$game['n1'].$game['n2'].$game['n3'].$game['n4'].$game['n5'].$game['n6'],
+           'bet_code'=>$game['n1'].$game['n2'].$game['n3'].$game['n4'].$game['n5'].$game['n6'].'_'.random_int(50000,80000),
            'ticket_number'=>$ticket_number,
            'min_potential_winning'=> (int)($info->combo2) * (int)$game['stake'], 
            'max_potential_winning'=> (int)($info->combo6) * (int)$game['stake'],

@@ -208,6 +208,25 @@ Route::get('/winners', function(){
          
        }
        DB::table('bets')->where('bet_code',$bet->bet_code)->update(['combination'=>$count]);
+
+       //rewarding the player
+       if($count == 2){
+        $combo2 = DB::table('bets')->where('bet_code',$bet->bet_code)->value('combo2');
+        DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo2]);
+       }
+       if($count == 3){
+        $combo3 = DB::table('bets')->where('bet_code',$bet->bet_code)->value('combo3');
+        DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo3]);
+       }
+       if($count == 4){
+        $combo4 = DB::table('bets')->where('bet_code',$bet->bet_code)->value('combo4');
+        DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo4]);
+       }
+       if($count == 5){
+        $combo5 = DB::table('bets')->where('bet_code',$bet->bet_code)->value('combo5');
+        DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo5]);
+       }
+
        echo 'done';
        
        //compare if n1 wins if n2 wings
@@ -293,5 +312,13 @@ Route::get('/winners', function(){
 
     
 
+Route::get('y', function () {
+ $date = Carbon::now()->format('Y-m-d');
+ $day = Carbon::parse($date)->format('l');
 
+
+
+dd();
+
+});
 
