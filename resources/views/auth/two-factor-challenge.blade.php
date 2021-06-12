@@ -1,4 +1,5 @@
 <x-guest-layout>
+      
     <x-jet-authentication-card>
         <x-slot name="logo">
             <img width="200px" height="auto"  src="assets/images/cashonlotto.png" />

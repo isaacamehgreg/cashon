@@ -17,10 +17,10 @@
               html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,
               video{display:block;vertical-align:middle}
               video{max-width:100%;height:auto}
-              .bg-white{--bg-opacity:1;background-color:#000;background-color:rgba(255,0,0,var(--bg-opacity))}
-              .bg-gray-100{--bg-opacity:2;
+              .bg-white{--bg-opacity:1;background-color:#000;background-color:rgba(12,13,79,255)}
+              .bg-gray-100{--bg-opacity:;
                              background-color:#ff0000;
-                             background-color:rgba(247,250,252,var(--bg-opacity))
+                             background-color:rgba(12,13,79,255)
                              }
               .border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}
               .border-t{border-top-width:1px}
@@ -40,6 +40,8 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
+                background-color: rgba(12,13,79,255);
+                color: white;
             }
         </style>
     </head>

@@ -1,4 +1,11 @@
 <x-guest-layout>
+       <style>
+            ** {
+                font-family: 'Nunito', sans-serif;
+                background-color: rgba(12,13,79,255);
+                color: white;
+            }
+        </style>
     <x-jet-authentication-card >
         <x-slot name="logo" >
             <img width="200px" height="auto"  src="assets/images/cashonlotto.png" />
