@@ -33,7 +33,7 @@
 
                         <tr>
                       
-                          <td>agent--{{$debt->agent_id}}</td>
+                          <td>{{$debt->agent_id}}</td>
                           <td>{{$debt->dues_paid}}</td>
                           <td>{{$debt->dues_to_be_paid}}</td>
                           <td>{{$debt->total_fines}}</td>

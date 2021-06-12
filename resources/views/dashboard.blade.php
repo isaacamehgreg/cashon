@@ -19,23 +19,10 @@
             <div class="col-md-12">
               <div class="d-flex justify-content-between align items center">
                 <div class="page-header-toolbar">
-                  <div class="btn-group toolbar-item" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary"><i class="mdi mdi-chevron-left"></i></button>
-                    <button type="button" class="btn btn-secondary">03/02/2019 - 20/08/2019</button>
-                    <button type="button" class="btn btn-secondary"><i class="mdi mdi-chevron-right"></i></button>
-                  </div>
-                  {{-- <div class="filter-wrapper">
-                    <div class="dropdown toolbar-item">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownsorting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Day</button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownsorting">
-                        <a class="dropdown-item" href="#">Last Day</a>
-                        <a class="dropdown-item" href="#">Last Month</a>
-                        <a class="dropdown-item" href="#">Last Year</a>
-                      </div>
-                    </div>
-                  </div> --}}
+                
+            
                 </div>
-                <form class="w-50" action="dotun.php">
+                <form method='post' class="w-50" action="/track_terminal">
                   <div class="form-group mb-0 row">
                     <label class="col-sm-4 col-form-label">Track terminal</label>
                     <div class="col-sm-8">

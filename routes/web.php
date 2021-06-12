@@ -309,16 +309,20 @@ Route::get('/winners', function(){
             return view('agent.cashier')->with(['cashiers'=>$cashiers, 'bets'=>$bets]);
         });
 
+        Route::get('/summary',function(){              
+           $agents = User::where('role', 'agent')->orderBy('created_at', 'DESC')->get();
+          
+            return view('admin.summary')->with(['agents'=>$agents ,]);
+        });
+
+
 
     
 
 Route::get('y', function () {
  $date = Carbon::now()->format('Y-m-d');
  $day = Carbon::parse($date)->format('l');
-
-
-
-dd();
+dd($day);
 
 });
 
