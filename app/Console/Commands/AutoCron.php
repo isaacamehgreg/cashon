@@ -62,6 +62,8 @@ class AutoCron extends Command
         //sms alert to all winners
 
         \Log::info("Cron is working fine!   started");
+
+        
        // return 0;
 //.........................................................when to act
        $today = Carbon::now()->format('Y-m-d');
@@ -100,7 +102,7 @@ class AutoCron extends Command
         
      //.....do this for every bet......
      
-     if($bet->day == $day && $bet->time == $current_hour){
+  if($bet->day == $day && $bet->time == $current_hour){
 
 
       echo $bet->bet_code.'_'.$winning_number[0]->number,$winning_number[1]->number,$winning_number[2]->number, $winning_number[3]->number,$winning_number[4]->number.'||||||||||';
@@ -191,7 +193,7 @@ class AutoCron extends Command
 
      //........it ok 
 
-    }
+   }
 
       
       //compare if n1 wins if n2 wings
