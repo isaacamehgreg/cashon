@@ -259,7 +259,40 @@
                   </div>
                 </div>
               </div>
+
+
+              <div class="row">
+                <div class="col-md-12 grid-margin">
+                  <div class="card">
+                    <div class="card-body">
+                      <h4 class="card-title mb-0">Top Terminals</h4>
+                      <?php $_cashiers = DB::table('cashiers')->get();?>
+                      @foreach($_cashiers as $cashier)
+                      <div class="d-flex mt-3 py-2 border-bottom">
+                        <img class="img-sm rounded-circle" src="http://www.imakusvisiontech.com/wp-content/uploads/2021/03/s90.jpg" alt="profile image">
+                        <div class="wrapper ml-2">
+                          <small>Cashier Code: {{$cashier->cashier_code}}</small>
+                          <p class="mb-n1 font-weight-semibold">Total Bet Placed: {{DB::table('bets')->where('cashier_id',$cashier->cashier_id)->get()->count()}}</p>
+                          <small>Location: {{$cashier->area}}</small>
+                        </div>
+                        <small class="mb-n1 font-weight-semibold">Revenue Generated: {{DB::table('users')->where('id',$cashier->area)->get()->count()}}</small>
+                        <small class="text-muted ml-auto">Owner: {{DB::table('users')->where('id',$cashier->agent_id)->value('name')}}</small>
+                      </div>
+                      @endforeach
+                   
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
             </div>
+
+        
+
           </div>
         </div>
         <!-- content-wrapper ends -->

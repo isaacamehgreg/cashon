@@ -61,12 +61,12 @@
           </a>
         </li>
        
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="payment-history.html">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Payment History</span>
           </a>
-        </li>
+        </li> --}}
         
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#agt" aria-expanded="false" aria-controls="agt">

@@ -60,9 +60,12 @@
                       @foreach ($agents as $agent)
                         <tr>
                           <td>{{$agent->name}}</td>
-                          <td><?php
-                          Cashier::where('agent_id', $agent)
-                          ?></td>
+                          <td>
+                            {{-- <?php
+                              //  foreach(DB::table('cashiers')->where('agent_id', $agent->id)->get() as )
+
+                          ?> --}}
+                          </td>
                           <td>0</td>
                           <td>354</td>
                           <td>0 </td>
