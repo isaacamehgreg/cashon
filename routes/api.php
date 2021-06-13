@@ -142,15 +142,15 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
 
    //get all related ticket
-   $tickets = Bet::where('ticket_number',$ticket_number )->get();
+$tickets = Bet::where('ticket_number',$ticket_number )->get();
    
 
 //send sms to user phone_number that he has played and 
             $curl = curl_init();
-            $mgs = `congratulation on, placing a bet with CashOn Lotto, your ticket number is $ticket_number `;
+            $mgs = "congratulation on, placing a bet with CashOn Lotto, your ticket number is".$ticket_number ;
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$phone.'&from=CashOn Lotto&body='.$mgs,
+            CURLOPT_URL => "http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to=".(string)$phone."&from=CashOn Lotto&body=".(string)$mgs,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -168,13 +168,38 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
             curl_close($curl);
 
+ //return response($response);
+ ////////////////////////////////////////////////////////////
 
-         //return response($response);
+//  $curl = curl_init();
+
+//  curl_setopt_array($curl, array(
+//    CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&from=BulkSMSNG&body=This+is+a+test+message.&to=2349028814649',
+//    CURLOPT_RETURNTRANSFER => true,
+//    CURLOPT_ENCODING => '',
+//    CURLOPT_MAXREDIRS => 10,
+//    CURLOPT_TIMEOUT => 0,
+//    CURLOPT_FOLLOWLOCATION => true,
+//    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//    CURLOPT_CUSTOMREQUEST => 'POST',
+//    CURLOPT_HTTPHEADER => array(
+//      'Content-Type: application/json',
+//      'Accept: application/json'
+//    ),
+//  ));
+ 
+//  $response = curl_exec($curl);
+ 
+//  curl_close($curl);
+
+
+/////////////////////////////////////////////////////////////////////
 
     
     return response()->json([
           'status'=> 'success',
-          'games'=>$tickets
+          'games'=>$tickets,
+          'sms'=>$response,
     ],200);
 
 
