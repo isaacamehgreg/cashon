@@ -275,7 +275,7 @@
                           <p class="mb-n1 font-weight-semibold">Total Bet Placed: {{DB::table('bets')->where('cashier_id',$cashier->cashier_id)->get()->count()}}</p>
                           <small>Location: {{$cashier->area}}</small>
                         </div>
-                        <small class="mb-n1 font-weight-semibold">Revenue Generated: {{DB::table('users')->where('id',$cashier->area)->get()->count()}}</small>
+                        <small class="mb-n1 font-weight-semibold">Revenue Generated: {{DB::table('users')->where('id',$cashier->agent_id)->get()->count()}}</small>
                         <small class="text-muted ml-auto">Owner: {{DB::table('users')->where('id',$cashier->agent_id)->value('name')}}</small>
                       </div>
                       @endforeach
