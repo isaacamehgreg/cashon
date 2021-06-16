@@ -215,6 +215,7 @@
                           <tbody>
                             @foreach(DB::table('bets')->orderBy('created_at', 'DESC')->get() as $bet)
                             <tr>
+                         
                               
                               <td >{{$bet->game_code}}</td>
                               <td >{{$bet->ticket_number}}</td>
