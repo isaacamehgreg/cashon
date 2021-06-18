@@ -144,7 +144,7 @@ $tickets = Bet::where('ticket_number',$ticket_number )->get();
             // $mgs = "congratulation on, placing a bet with CashOn Lotto, your ticket number is".$ticket_number ;
 
             // curl_setopt_array($curl, array(
-            // CURLOPT_URL => "http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to=".(string)$phone."&from=CashOn Lotto&body=".(string)$mgs,
+            // CURLOPT_URL => "http://bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&to=".(string)$phone."&from=CashOn Lotto&body=".(string)$mgs,
             // CURLOPT_RETURNTRANSFER => true,
             // CURLOPT_ENCODING => '',
             // CURLOPT_MAXREDIRS => 10,
@@ -162,29 +162,55 @@ $tickets = Bet::where('ticket_number',$ticket_number )->get();
 
             // curl_close($curl);
 
+
+            $mgs = "congratulation%20on,%20placing%20a%20bet%20with%20CashOn%20Lotto,%20your%20ticket%20number%20is".$ticket_number ;
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$phone."&body=".(string)$mgs.'&dnd=2',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'POST',
+  CURLOPT_HTTPHEADER => array(
+    'Content-Type: application/json',
+    'Accept: application/json'
+  ),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+
+
+
  //return response($response);
  ////////////////////////////////////////////////////////////
 
- $curl = curl_init();
+//  $curl = curl_init();
 
- curl_setopt_array($curl, array(
-   CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&from=BulkSMSNG&body=This+is+a+test+message.&to=2349028814649',
-   CURLOPT_RETURNTRANSFER => true,
-   CURLOPT_ENCODING => '',
-   CURLOPT_MAXREDIRS => 10,
-   CURLOPT_TIMEOUT => 0,
-   CURLOPT_FOLLOWLOCATION => true,
-   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-   CURLOPT_CUSTOMREQUEST => 'POST',
-   CURLOPT_HTTPHEADER => array(
-     'Content-Type: application/json',
-     'Accept: application/json'
-   ),
- ));
+//  curl_setopt_array($curl, array(
+//    CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&from=BulkSMSNG&body=This+is+a+test+message.&to=2349028814649',
+//    CURLOPT_RETURNTRANSFER => true,
+//    CURLOPT_ENCODING => '',
+//    CURLOPT_MAXREDIRS => 10,
+//    CURLOPT_TIMEOUT => 0,
+//    CURLOPT_FOLLOWLOCATION => true,
+//    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//    CURLOPT_CUSTOMREQUEST => 'POST',
+//    CURLOPT_HTTPHEADER => array(
+//      'Content-Type: application/json',
+//      'Accept: application/json'
+//    ),
+//  ));
  
- $response = curl_exec($curl);
+//  $response = curl_exec($curl);
  
- curl_close($curl);
+//  curl_close($curl);
 
 
 /////////////////////////////////////////////////////////////////////
