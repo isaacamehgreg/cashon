@@ -250,10 +250,10 @@ Route::post('bet/paid/{cashier_id}/{ticket_number}', function($cashier_id,$ticke
         'msg' =>'no ticket found'
         ]);
     }
-     $mark_as_paid = Bet::where('ticket_number', $ticket_number)->where('cashier_id', $cashier_id)->update([
-         'status'=>'paid',
-         'updated_at'=>Carbon::now(),
-     ]);
+    $mark_as_paid = Bet::where('ticket_number', $ticket_number)->where('cashier_id', $cashier_id)->update([
+        'status'=>'paid',
+        'updated_at'=>Carbon::now(),
+    ]);
 
      return response()->json([
         'status'=>'success',
