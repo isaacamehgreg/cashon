@@ -38,6 +38,14 @@
                   </li>
                 </ul>
               </div>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/_payout">
+                  <i class="menu-icon typcn typcn-document-text"></i>
+                  <span class="menu-title">Reconcile Dept</span>
+                </a>
+              </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="/logout">
                   <i class="menu-icon typcn typcn-document-text"></i>
