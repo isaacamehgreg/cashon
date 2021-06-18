@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group">
                       <label for="amount">Amount</label>
-                      <input type="tel" id="amount" class="form-control" required />
+                      <input type="number" id="amount" class="form-control" required />
                     </div>
                     <div class="form-group" hidden>
                       <label for="first-name">First Name</label>
@@ -58,7 +58,18 @@
                       },
                       callback: function(response){
                         let message = 'Payment complete! Reference: ' + response.reference;
-                        alert(message);
+                        
+                        
+                        fetch(`/_payout/${response.reference}`).
+                        then(data => json(data)).
+                        then(res => {
+                               console/log(res);
+                        }).
+                        catch(
+                          alert('something went wrong')
+                        );
+
+
                       }
                     });
                     handler.openIframe();

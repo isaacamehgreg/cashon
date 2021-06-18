@@ -311,13 +311,18 @@ Route::get('/winners', function(){
 
         Route::get('/summary',function(){              
            $agents = User::where('role', 'agent')->orderBy('created_at', 'DESC')->get();
-          
             return view('admin.summary')->with(['agents'=>$agents ,]);
         });
         Route::get('/_payout',function(){              
             $agents = User::where('role', 'agent')->orderBy('created_at', 'DESC')->get();
            
              return view('agent.payout');
+         });
+         Route::get('/_payout/{ref}',function($ref){              
+                  
+
+            
+             return response()->json(['status'=>'success'],200);
          });
 
 
