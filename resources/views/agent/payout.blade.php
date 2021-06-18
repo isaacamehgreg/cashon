@@ -15,33 +15,56 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Reconcile Your Debt</h4>
-                  <form method="post" action="_payout" class="forms-sample">
-                    @csrf
-                    
-                
-
-                    
-                    <input type="text" name="agent" class="form-control" id="exampleInputName1" placeholder="Name" value="{{Auth::user()->id}}" hidden>
-                    
-
-                    <div class="form-group">
-                      <label for="exampleInputName1">Name</label>
-                      <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
-                    </div>
-                
-                    <div class="form-group">
-                      <label for="exampleInputEmail3">Cashier Code</label>
-                      <input type="number" name="code" class="form-control" id="exampleInputEmail3" max-length="6" placeholder="Cashier code">
-                    </div>
-
-                    <div class="form-group">
-                      <label for="exampleInputPassword4">Password</label>
-                      <input type="password" name="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                    </div>
                   
-                    <button type="submit" class="btn btn-success mr-2">Submit</button>
-               
+
+                  <form id="paymentForm">
+                    <div class="form-group" hidden>
+                      <label for="email">Email Address</label>
+                      <input type="email" id="email-address" value="{{Auth::user()->email}}"  required  hidden/>
+                    </div>
+                    <div class="form-group">
+                      <label for="amount">Amount</label>
+                      <input type="tel" id="amount" class="form-control" required />
+                    </div>
+                    <div class="form-group" hidden>
+                      <label for="first-name">First Name</label>
+                      <input type="text" id="first-name" value="{{Auth::user()->name}}" hidden />
+                    </div>
+                    <div class="form-group" hidden>
+                      <label for="last-name">Last Name</label>
+                      <input type="text" id="last-name" value="{{Auth::user()->id}}" hidden />
+                    </div>
+
+                    <div class="form-submit">
+                      <button type="submit" style="width:100%" class="btn btn-success" onclick="payWithPaystack()"> Pay </button>
+                    </div>
                   </form>
+                  <script src="https://js.paystack.co/v1/inline.js"></script> 
+
+
+                  <script>
+                  const paymentForm = document.getElementById('paymentForm');
+                  paymentForm.addEventListener("submit", payWithPaystack, false);
+                  function payWithPaystack(e) {
+                    e.preventDefault();
+                    let handler = PaystackPop.setup({
+                      key: 'pk_test_8fb90d70196c1b277ae8be739f363bee5ae991ab', // Replace with your public key
+                      email: document.getElementById("email-address").value,
+                      amount: document.getElementById("amount").value * 100,
+                      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                      // label: "Optional string that replaces customer email"
+                      onClose: function(){
+                        alert('Window closed.');
+                      },
+                      callback: function(response){
+                        let message = 'Payment complete! Reference: ' + response.reference;
+                        alert(message);
+                      }
+                    });
+                    handler.openIframe();
+                  }
+                  </script>
+
                 </div>
               </div>
           </div>
