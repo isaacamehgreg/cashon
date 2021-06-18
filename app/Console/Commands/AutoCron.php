@@ -152,26 +152,26 @@ class AutoCron extends Command
        
         //send sms to user phone_number that he has played and 
         $curl = curl_init();
-        $mgs = `congratulation!!! you won CashOn Lotto, your ticket number is $bet->ticket_number `;
+        $mgs = `congratulation!!!%20you%20won%20CashOn%20Lotto,%20your%20ticket%20number%20is%20$bet->ticket_number `;
 
-        curl_setopt_array($curl, array(
-        CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$bet->phone_number.'&from=CashOn Lotto&body='.$mgs,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => '',
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 0,
-        CURLOPT_FOLLOWLOCATION => true,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => 'POST',
-        CURLOPT_HTTPHEADER => array(
-            'Content-Type: application/json',
-            'Accept: application/json'
-        ),
-        ));
+        // curl_setopt_array($curl, array(
+        // CURLOPT_URL => 'http://bulksmsnigeria.com/api/v2/sms/create?api_token=wTaYDs0A9chYaRFcFyKc9H0Hh8ZHxx7K7sJpnoFKxe6wJkWDZ79QS3cy8uHf&to='.$bet->phone_number.'&from=CashOn Lotto&body='.$mgs,
+        // CURLOPT_RETURNTRANSFER => true,
+        // CURLOPT_ENCODING => '',
+        // CURLOPT_MAXREDIRS => 10,
+        // CURLOPT_TIMEOUT => 0,
+        // CURLOPT_FOLLOWLOCATION => true,
+        // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        // CURLOPT_CUSTOMREQUEST => 'POST',
+        // CURLOPT_HTTPHEADER => array(
+        //     'Content-Type: application/json',
+        //     'Accept: application/json'
+        // ),
+        // ));
 
-        $response = curl_exec($curl);
+        // $response = curl_exec($curl);
 
-        curl_close($curl);
+        // curl_close($curl);
         //................end send sms....................
 
 

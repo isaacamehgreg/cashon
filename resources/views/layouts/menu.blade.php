@@ -150,6 +150,13 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link" href="/run_draw">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Run Draw</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link" href="/logout">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Logout</span>
