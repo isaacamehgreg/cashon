@@ -66,7 +66,7 @@
                                console/log(res);
                         }).
                         catch(
-                          alert('something went wrong')
+                          // alert('something went wrong')
                         );
 
 

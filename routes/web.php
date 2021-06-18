@@ -321,8 +321,37 @@ Route::get('/winners', function(){
          Route::get('/_payout/{ref}',function($ref){              
                   
 
-            
-             return response()->json(['status'=>'success'],200);
+             //verify reference
+             $curl = curl_init();
+             curl_setopt_array($curl, [
+                 CURLOPT_URL => "https://api.paystack.co/transaction/verify/" . $ref,
+                 CURLOPT_RETURNTRANSFER => true,
+                 CURLOPT_HTTPHEADER => [
+                     "accept: application/json",
+                     "authorization: Bearer sk_test_ce706fad7c22bf5f6d7ee9d9ac76db3f19c72af5",
+                     "cache-control: no-cache"
+                 ],
+             ]);
+     
+             $response = curl_exec($curl);
+             $err = curl_error($curl);
+     
+             // if ($err) {
+             //     return back()->with('error', 'Could not communicate with payment gateway, please try again later.');
+             // }
+     
+             $txn = json_decode($response);
+     
+             if ($txn->status == false) {
+                 return dd('transaction reference not correct' );
+                // return \response()->json(['status' => false, 'message' => 'Transaction reference not found']);
+             }
+
+
+             return response()->json([
+                 'status'=>'success',
+                 'ref'=>$txn,
+            ],200);
          });
 
 
