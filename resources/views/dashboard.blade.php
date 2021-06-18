@@ -221,12 +221,11 @@
                               <td >{{$bet->ticket_number}}</td>
                               <td class="text-primary">{{$bet->bet_code}}</td>
                               <td class="text-danger">{{$bet->stake}}</td>
-                              <td class="text-warning">{{$bet->status ?? 'pending'}}</td>
-                              <td class="text-success">{{$bet->result_status ?? 'not yet played'}}</td>
+                              <td class="text-warning">{{$bet->status ?? 'Pending'}}</td>
+                              <td class="text-success">{{$bet->result_status ?? 'Not Yet Played'}}</td>
                              
                               
-                             
-                             
+                            
                             </tr>
                             @endforeach
                           </tbody>
