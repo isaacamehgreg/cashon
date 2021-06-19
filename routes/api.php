@@ -132,14 +132,18 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
        $update = DB::table('users')->where('id', $agent_id)->update(['total_commision'=>$new]);
 
        //admin raked
+       //whats left 
+       $remaining = (int)$game['stake']/(($percentage_commision /  100) * (int)$game['stake']);
+
 
        $total_rake = DB::table('rakes')->where('id', 1)->value('total_rake');
        $percentage_rake = DB::table('rakes')->where('id', 1)->value('percentage_rake');
-       if($total_commision == null){
-          $total_commision = 0;
+       if($total_rake == null){
+          
+          $total_rake = 0;
        }
-       $new = $total_commision + ( ($percentage_commision/  100) * (int)$game['stake'] );
-       $update = DB::table('users')->where('id', $agent_id)->update(['total_commision'=>$new]);
+       $new = $total_rake + ( ($percentage_rake/  100) * $remaining );
+       $update = DB::table('users')->where('id', $agent_id)->update(['total_rake'=>$new]);
     
        // submit numbers for comparism algorithm  
      
