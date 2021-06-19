@@ -515,7 +515,7 @@ Route::get('/run_draw', function(){
             
  
       }
-      return;
+      return redirect('/dashboard');
  
  });
 

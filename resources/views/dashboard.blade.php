@@ -206,7 +206,8 @@
                               <th>Bet Code</th>
                               <th>Stake</th>
                               <th>Status</th>
-                              <th>result Status</th>
+                              <th>Result Status</th>
+                              <th>Payouts</th>
                               {{-- //win or loss --}}
                              
                               
@@ -221,8 +222,14 @@
                               <td >{{$bet->ticket_number}}</td>
                               <td class="text-primary">{{$bet->bet_code}}</td>
                               <td class="text-danger">{{$bet->stake}}</td>
-                              <td class="text-warning">{{$bet->status ?? 'Pending'}}</td>
-                              <td class="text-success">{{$bet->result_status ?? 'Not Yet Played'}}</td>
+                              <td class="text-info">{{$bet->status ?? 'pending'}}</td>
+                              @if ($bet->result_status == "won")
+                              <td class="text-success">{{$bet->result_status ?? 'not yet played'}}</td>
+                              @else
+                              <td class="text-danger">{{$bet->result_status ?? 'not yet played'}}</td>
+                              @endif
+                              <td class="text-info">{{$bet->payout ?? 'N 0'}}</td>
+
                              
                               
                             

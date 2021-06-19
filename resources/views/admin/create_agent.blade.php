@@ -39,7 +39,14 @@
                 
                     <div class="form-group">
                       <label for="exampleInputCity1">Area</label>
-                      <input type="text" name="address" class="form-control" id="exampleInputCity1" placeholder="Area">
+                      <select class="form-control" name="area" id="exampleInputCity1">
+                        <option disabled selected>--Select Area--</option>
+                        <option value="Lekki">Lekki1</option>
+                        <option value="Ajah">Ajah</option>
+                        <option value="Elegushi">Elegushi</option>
+                        <option value="Lekki">Lekki 2</option>
+                        <option value="V-I">V-I</option>
+                    </select>
                     </div>
                     <div class="form-group">
                       <label for="exampleInputCity1">Phone</label>
