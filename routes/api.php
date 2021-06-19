@@ -120,32 +120,46 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
 
        ]);
-      $agent_id = DB::table('cashiers')->where('cashier_id', $cashier_id)->value('agent_id');
+       $agent_id = DB::table('cashiers')->where('cashier_id', $cashier_id)->value('agent_id');  
        //raked and pool and commision
        //agent commision
        $total_commision = DB::table('users')->where('id', $agent_id)->value('total_commision');
        $percentage_commision = DB::table('users')->where('id', $agent_id)->value('percentage_commision');
+
        if($total_commision == null){
           $total_commision = 0;
-       }
-       $new = $total_commision + ( ($percentage_commision/  100) * (int)$game['stake'] );
+       }   
+       
+       $percentage_commision = $percentage_commision /  100;
+       $t = $percentage_commision * (int)$game['stake'];
+      
+       $new = $total_commision + $t;
+      
        $update = DB::table('users')->where('id', $agent_id)->update(['total_commision'=>$new]);
-
+       
        //admin raked
        //whats left 
-       $remaining = (int)$game['stake']/(($percentage_commision /  100) * (int)$game['stake']);
+       $remaining = (int)$game['stake'] - $t;
+       //
+       
 
+       $total_rake = DB::table('rakes')->where('id', 1)->value('total_raked');
 
-       $total_rake = DB::table('rakes')->where('id', 1)->value('total_rake');
-       $percentage_rake = DB::table('rakes')->where('id', 1)->value('percentage_rake');
+       $percentage_rake = DB::table('rakes')->where('id', 1)->value('percentage_raked');
+       
        if($total_rake == null){
-          
           $total_rake = 0;
        }
-       $new = $total_rake + ( ($percentage_rake/  100) * $remaining );
-       $update = DB::table('users')->where('id', $agent_id)->update(['total_rake'=>$new]);
+       $percentage_rake = $percentage_rake /  100;
+       $r = $percentage_rake * $remaining;
+       $newr = $total_rake + $r;
+       $updater = DB::table('rakes')->where('id', 1)->update(['total_raked'=>$newr]);
     
-       // submit numbers for comparism algorithm  
+       // put amount in pool 
+      
+      
+
+
      
     }
 
