@@ -68,9 +68,7 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
    //fetch form data
     $bet = $request->all();
-  //$try = $bet['status'];
-  //$try = $bet['games'][0]['n1'];
-  //$try = count($bet['games']);
+
   // get all the values
    $game_code = $bet['game_code'];
    $phone = $bet['phone_number'];
@@ -122,6 +120,26 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
 
 
        ]);
+      $agent_id = DB::table('cashiers')->where('cashier_id', $cashier_id)->value('agent_id');
+       //raked and pool and commision
+       //agent commision
+       $total_commision = DB::table('users')->where('id', $agent_id)->value('total_commision');
+       $percentage_commision = DB::table('users')->where('id', $agent_id)->value('percentage_commision');
+       if($total_commision == null){
+          $total_commision = 0;
+       }
+       $new = $total_commision + ( ($percentage_commision/  100) * (int)$game['stake'] );
+       $update = DB::table('users')->where('id', $agent_id)->update(['total_commision'=>$new]);
+
+       //admin raked
+
+       $total_rake = DB::table('rakes')->where('id', 1)->value('total_rake');
+       $percentage_rak = DB::table('rakes')->where('id', 1)->value('percentage_rake');
+       if($total_commision == null){
+          $total_commision = 0;
+       }
+       $new = $total_commision + ( ($percentage_commision/  100) * (int)$game['stake'] );
+       $update = DB::table('users')->where('id', $agent_id)->update(['total_commision'=>$new]);
     
        // submit numbers for comparism algorithm  
      
