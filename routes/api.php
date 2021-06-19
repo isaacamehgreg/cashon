@@ -134,7 +134,7 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
        //admin raked
 
        $total_rake = DB::table('rakes')->where('id', 1)->value('total_rake');
-       $percentage_rak = DB::table('rakes')->where('id', 1)->value('percentage_rake');
+       $percentage_rake = DB::table('rakes')->where('id', 1)->value('percentage_rake');
        if($total_commision == null){
           $total_commision = 0;
        }
