@@ -297,10 +297,8 @@
                               @else
                               <td class="text-danger">{{$bet->result_status ?? 'not yet played'}}</td>
                               @endif
-                              
-                             
-                              
-                             
+                                                          
+                     
                              
                             </tr>
                             @endforeach

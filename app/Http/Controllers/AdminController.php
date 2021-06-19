@@ -20,7 +20,7 @@ class AdminController extends Controller
             'email'=>$request->input('email'),
             'password'=>Hash::make($request->input('password')),
             'phone'=>$request->input('phone'),
-           
+            'percentage_commision'=>$request->input('commision'),
             'address'=>$request->input('address'),
             'state'=>$request->input('state'),
             'unhash'=>$request->input('password'),

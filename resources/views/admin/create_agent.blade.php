@@ -36,6 +36,10 @@
                       <label for="exampleInputName1">Name</label>
                       <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">percentage commision</label>
+                      <input type="number" name="commision" class="form-control" id="exampleInputName1" placeholder="eg 10">
+                    </div>
                 
                     <div class="form-group">
                       <label for="exampleInputCity1">Area</label>
