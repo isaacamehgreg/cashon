@@ -22,7 +22,7 @@ Route::get('/logout', function () {
 });
 
 Route::get('/', function () {
-    return view('login');
+    return view('/login');
 });
 
 
