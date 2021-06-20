@@ -163,7 +163,7 @@
                     <div class="card-body pb-0">
                       <div class="d-flex justify-content-between">
                         <h4 class="card-title mb-0">Amount Raked</h4>
-                        <p class="font-weight-semibold mb-0">Raked Percentage {{DB::table('rakes')->where('id',1)->value('percentage_raked')}}%</p>
+                        <p class="font-weight-semibold mb-0">Raked Percentage {{DB::table('rakes')->where('id',1)->value('percentage_raked') ?? 60 }}%</p>
                       </div>
                       <h3 class="font-weight-medium mb-4">{{DB::table('bets')->get()->count()}}</h3>
                     </div>
