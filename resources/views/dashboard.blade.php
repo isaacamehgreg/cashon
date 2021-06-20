@@ -165,7 +165,7 @@
                         <h4 class="card-title mb-0">Amount Raked</h4>
                         <p class="font-weight-semibold mb-0">Raked Percentage {{DB::table('rakes')->where('id',1)->value('percentage_raked') ?? 60 }}%</p>
                       </div>
-                      <h3 class="font-weight-medium mb-4">{{DB::table('bets')->get()->count()}}</h3>
+                      <h3 class="font-weight-medium mb-4">{{DB::table('rakes')->where('id',1)->value('total_raked')}}</h3>
                     </div>
                     <canvas class="mt-n4" height="90" id="total-revenue"></canva>
                   </div>
