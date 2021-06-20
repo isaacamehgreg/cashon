@@ -23,6 +23,12 @@ Route::get('/logout', function () {
 
 Route::get('/', function () {
     return redirect('login');
+    if(DB::table('rakes')->where('id',1)->count() == 0){
+    DB::table('rakes')->insert([
+        "percentage_raked"=>60,
+        "total_raked"=>0,
+
+    ]);}
 });
 
 
