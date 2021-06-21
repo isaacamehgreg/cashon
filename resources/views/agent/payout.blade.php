@@ -19,7 +19,7 @@
 
                   <form id="paymentForm">
                     <div class="form-group" hidden>
-                      <label for="email">Email Address</label>
+                      <label for="email">Email Address.</label>
                       <input type="email" id="email-address" value="{{Auth::user()->email}}"  required  hidden/>
                     </div>
                     <div class="form-group">
