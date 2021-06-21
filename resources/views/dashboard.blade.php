@@ -69,7 +69,7 @@
                             foreach (DB::table('bets')->get() as $bet ) {
                               $cash = $cash + $bet->stake;
                             }
-                          echo $cash;
+                          echo number_format($cash);
                           ?></h3>
                           <h5 class="mb-0 font-weight-medium text-primary">Revenue</h5>
                         </div>
