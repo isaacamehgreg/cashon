@@ -14,7 +14,7 @@
           <div class="col-md-6 mx-auto grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Reconcile Your Debt</h4>
+                  <h4 class="card-title">Reconcile Your Debt.</h4>
                   
 
                   <form id="paymentForm">
