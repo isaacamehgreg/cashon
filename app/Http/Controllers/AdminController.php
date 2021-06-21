@@ -156,6 +156,23 @@ class AdminController extends Controller
         return back();
 
     }
+    public function create_an_admin(Request $request){
+        
+        $insert = DB::table('users')->insert([
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            'password'=>Hash::make($request->input('password')),
+            'phone'=>$request->input('phone'),
+          
+            'address'=>$request->input('address'),
+            'state'=>$request->input('state'),
+            'unhash'=>$request->input('password'),
+            'role'=>'admin',
+        ]);
+        return redirect('all_agents');
+        
+    }
+    
      
 
 

@@ -11,47 +11,20 @@
       
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="col-md-6 mx-auto grid-margin stretch-card">
+          <div class="col-md-6 mx-auto grid-margin stretch-card" style="padding-top: 50px">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Add new Agent</h4>
-                  <form method="post" action="create_an_agent" class="forms-sample">
+                  <h4 class="card-title">Add new Admin</h4>
+                  <form method="post" action="create_an_admin" class="forms-sample">
                     @csrf
                     
-                    {{-- <div class="form-group">
-                      <label for="exampleInputName1">Agent Incharge</label>
-                      
-                       <select class="form-control" name="agent" id="exampleInputCity1">
-                        <option disabled selected>--Select agent incharge--</option>
-                        @foreach ($agents as $agent)
-                          <option value="{{$agent->id}}">{{$agent->name}}</option>  
-                        @endforeach
-              
-                       <select>
-
-                      
-                    </div> --}}
+                  
 
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>
                       <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputName1">percentage commision</label>
-                      <input type="number" name="commision" class="form-control" id="exampleInputName1" placeholder="eg 10">
-                    </div>
-                
-                    <div class="form-group">
-                      <label for="exampleInputCity1">Area</label>
-                      <select class="form-control" name="area" id="exampleInputCity1">
-                        <option disabled selected>--Select Area--</option>
-                        <option value="Lekki">Lekki1</option>
-                        <option value="Ajah">Ajah</option>
-                        <option value="Elegushi">Elegushi</option>
-                        <option value="Lekki">Lekki 2</option>
-                        <option value="V-I">V-I</option>
-                    </select>
-                    </div>
+    
                     <div class="form-group">
                       <label for="exampleInputCity1">Phone</label>
                       <input type="text" name="phone" class="form-control" id="exampleInputCity1" placeholder="Phone">

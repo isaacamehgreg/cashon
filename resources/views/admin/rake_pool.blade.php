@@ -22,7 +22,7 @@
                      
                     <div class="form-group">
                       <label for="exampleInputName1">ADMIN Rake per bet</label>
-                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake" value="{{DB::table(rakes)->where('id',1)-value('percentage_raked')}}" >
+                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake"  >
                     </div>
                 
                     

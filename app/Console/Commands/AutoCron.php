@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Arr;
 use App\Models\Game;
 use Carbon\Carbon as CarbonCarbon;
-
+use Illuminate\Support\Facades\Log;
 
 class AutoCron extends Command
 {
@@ -61,7 +61,7 @@ class AutoCron extends Command
 
         //sms alert to all winners
 
-        \Log::info("Cron is working fine!   started");
+        Log::info("Cron is working fine!   started");
 
         
        // return 0;
@@ -198,7 +198,7 @@ class AutoCron extends Command
       
       //compare if n1 wins if n2 wings
 
-      \Log::info("Cron is working fine!  finished");
+      Log::info("Cron is working fine!  finished");
 
 
 

@@ -268,6 +268,12 @@ Route::post('bet/paid/{cashier_id}/{ticket_number}', function($cashier_id,$ticke
 });
 
 
+//Raffle
+Route::get('raffle/{cashier id}', function(){
+
+});
+
+
 
 
 

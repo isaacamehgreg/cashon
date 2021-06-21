@@ -82,7 +82,12 @@ Route::get('create_a_terminal',[AdminController::class,'create_a_terminal']);
 Route::get('all_terminal',[AdminController::class,'all_terminal']);
 //debt
 Route::get('debt_summary',[AdminController::class,'debt_summary']);
-
+//admin
+Route::view('add_admin','admin.create_admin');
+Route::post('create_an_admin',[AdminController::class,'create_an_admin']);
+Route::get('all_admin',function(){
+    return view('admin.all_admin')->with(['admins'=>User::where('role','admin')->get()]);
+});
 //games route
 Route::view('create_game', 'game.create_game');
 Route::view('rake_pool', 'admin.rake_pool');

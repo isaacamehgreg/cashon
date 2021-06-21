@@ -33,19 +33,19 @@
                     </tr>
                   </thead>
                   <tbody>
-                   @foreach ($agents as $agent)
+                   @foreach ($admins as $admin)
                        
                 
                     <tr>
                    
-                      <td>{{$agent->name}}</td>
-                      <td>{{$agent->email}}</td>
-                      <td>{{$agent->phone}}</td>
-                      <td>{{$agent->state}}</td>
-                      <td>{{count(DB::table('cashiers')->where('agent_id', $agent->id)->get())}}</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('cash_allocated') ?? 0}}</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('cash_remitted') ?? 0}}</td>
-                      <td>{{DB::table('agent_credits')->where('agent_id', $agent->id)->value('pending') ?? 0}}</td>
+                      <td>{{$admin->name}}</td>
+                      <td>{{$admin->email}}</td>
+                      <td>{{$admin->phone}}</td>
+                      <td>{{$admin->state}}</td>
+                      <td>{{count(DB::table('cashiers')->where('agent_id', $admin->id)->get())}}</td>
+                      <td>{{DB::table('agent_credits')->where('agent_id', $admin->id)->value('cash_allocated') ?? 0}}</td>
+                      <td>{{DB::table('agent_credits')->where('agent_id', $admin->id)->value('cash_remitted') ?? 0}}</td>
+                      <td>{{DB::table('agent_credits')->where('agent_id', $admin->id)->value('pending') ?? 0}}</td>
                       <td><button type="button" class="btn btn-success btn-sm">Resolve</button></td>
                       <td><button type="button" class="btn btn-danger btn-sm">block</button></td>
                     </tr>
