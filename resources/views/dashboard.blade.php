@@ -175,16 +175,10 @@
                   <div class="card">
                     <div class="card-body pb-0">
                       <div class="d-flex justify-content-between">
-                        <h4 class="card-title mb-0">Total Revenue Generated.</h4>
-                        <p class="font-weight-semibold mb-0">+23.87%</p>
+                        <h4 class="card-title mb-0">Total Amount Pooled</h4>
+                        <p class="font-weight-semibold mb-0">{{DB::table('pools')->where('id',1)->value('percentage_pool')}}%</p>
                       </div>
-                      <h3 class="font-weight-medium">N <?php
-                            $cash = 0;
-                            foreach (DB::table('bets')->get() as $bet ) {
-                              $cash = $cash + $bet->stake;
-                            }
-                          echo $cash;
-                          ?></h3>
+                      <h3 class="font-weight-medium">N {{DB::table('pools')->where('id',1)->value('total_pool')}}</h3>
                     </div>
                     <canvas class="mt-n3" height="90" id="total-transaction"></canvas>
                   </div>
