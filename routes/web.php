@@ -34,6 +34,9 @@ Route::get('/', function () {
 
 
 Route::get('/dashboard', function () {
+    if(Auth::guest()){
+        return redirect('login');
+    }
     $play = DB::table('games_played')->get(); 
 
     if(Auth::user()->role == 'agent'){
