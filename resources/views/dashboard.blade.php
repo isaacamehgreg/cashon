@@ -249,7 +249,7 @@
                 <div class="col-md-12 grid-margin">
                   <div class="card">
                     <div class="card-body">
-                      <h4 class="card-title mb-0">Top Agents</h4>
+                      <h4 class="card-title mb-0">Top Agents.</h4>
                       <?php $_agents = DB::table('users')->where('role', 'agent')->get();?>
                       @foreach($_agents as $agent)
                       <div class="d-flex mt-3 py-2 border-bottom">
