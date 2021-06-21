@@ -175,7 +175,7 @@
                   <div class="card">
                     <div class="card-body pb-0">
                       <div class="d-flex justify-content-between">
-                        <h4 class="card-title mb-0">Total Revenue Generated</h4>
+                        <h4 class="card-title mb-0">Total Revenue Generated.</h4>
                         <p class="font-weight-semibold mb-0">+23.87%</p>
                       </div>
                       <h3 class="font-weight-medium">N <?php
