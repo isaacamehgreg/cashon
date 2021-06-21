@@ -149,7 +149,7 @@ class AdminController extends Controller
         DB::table('rakes')->where('id',1)->update([
             'percentage_raked'=> $request->input('rake'),
         ]);
-        DB::table('pool')->where('id',1)->update([
+        DB::table('pools')->where('id',1)->update([
             'percentage_pool'=> $request->input('pool'),
         ]);
 

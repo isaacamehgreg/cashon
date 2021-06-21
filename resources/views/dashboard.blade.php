@@ -166,7 +166,7 @@
 
                         <p class="font-weight-semibold mb-0">Raked Percentage {{DB::table('rakes')->where('id',1)->value('percentage_raked') ?? 60 }}%</p>
                       </div>
-                      <h3 class="font-weight-medium mb-4">{{DB::table('rakes')->where('id',1)->value('total_raked')}}</h3>
+                      <h3 class="font-weight-medium mb-4">N{{ number_format(DB::table('rakes')->where('id',1)->value('total_raked'))}}</h3>
                     </div>
                     <canvas class="mt-n4" height="90" id="total-revenue"></canva>
                   </div>
@@ -176,7 +176,7 @@
                     <div class="card-body pb-0">
                       <div class="d-flex justify-content-between">
                         <h4 class="card-title mb-0">Total Amount Pooled</h4>
-                        <p class="font-weight-semibold mb-0">{{DB::table('pools')->where('id',1)->value('percentage_pool')}}%</p>
+                        <p class="font-weight-semibold mb-0">{{number_format(DB::table('pools')->where('id',1)->value('percentage_pool'))}}%</p>
                       </div>
                       <h3 class="font-weight-medium">N {{DB::table('pools')->where('id',1)->value('total_pool')}}</h3>
                     </div>

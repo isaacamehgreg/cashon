@@ -131,23 +131,7 @@
             </ul>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="agt">
-            <i class="menu-icon typcn typcn-document-add"></i>
-            <span class="menu-title">Admin</span>
-            <i class="menu-arrow"></i>
-          </a>
-          <div class="collapse" id="admin">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="all-admins.html"> All Admins </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="add-admin.html"> Add Admin </a>
-              </li>
-            </ul>
-          </div>
-        </li>
+       
 
         <li class="nav-item">
           <a class="nav-link" href="/rake_pool">
@@ -161,6 +145,23 @@
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Run Draw</span>
           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="agt">
+            <i class="menu-icon typcn typcn-document-add"></i>
+            <span class="menu-title">Admin</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="admin">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="/all_admin"> All Admins </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/add_admin"> Add Admin </a>
+              </li>
+            </ul>
+          </div>
         </li>
 
         <li class="nav-item">

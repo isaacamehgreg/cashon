@@ -22,14 +22,16 @@
                      
                     <div class="form-group">
                       <label for="exampleInputName1">ADMIN Rake per bet</label>
-                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake"  >
+                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake" value="{{DB::table(rakes)->where('id',1)-value('percentage_raked')}}" >
                     </div>
                 
                     
                 
                     <div class="form-group">
                       <label for="exampleInputCity1">POOL per bet</label>
-                      <input type="number" name="pool" onchange="set('pool')" class="form-control" id="pool" >
+                      <input type="number" name="pool" onchange="set('pool')" class="form-control" id="pool" 
+                      
+                      >
                     </div>
 
                    </div>
