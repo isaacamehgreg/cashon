@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Symfony\Component\HttpFoundation\AcceptHeader;
 
 class AdminController extends Controller
 {
@@ -141,4 +143,22 @@ class AdminController extends Controller
         
         return redirect('all_games');
     }
+
+    public function _rake_pool(Request $request){
+        
+        DB::table('rakes')->where('id',1)->update([
+            'percentage_raked'=> $request->input('rake'),
+        ]);
+        DB::table('pool')->where('id',1)->update([
+            'percentage_pool'=> $request->input('pool'),
+        ]);
+
+        return back();
+
+    }
+     
+
+
+
+
 }

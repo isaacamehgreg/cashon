@@ -15,14 +15,14 @@
               <div class="card">
                 <div class="card-body justify-content-around" style="">
                   <h4 class="card-title">Set Rake And Pool Percentage</h4><hr>
-                  <form method="post" action="create_an_agent" class="forms-sample">
+                  <form method="post" action="_rake_pool" class="forms-sample">
                     @csrf
                     
                    <div class="row justify-content-around">
                      
                     <div class="form-group">
                       <label for="exampleInputName1">ADMIN Rake per bet</label>
-                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake" >
+                      <input type="number" onchange="set('rake')" name="commision" class="form-control" id="rake"  >
                     </div>
                 
                     
@@ -37,14 +37,12 @@
                    <script>
 
                      function set(what){
-                        
+                       //\ alert('yup');
                         if(what == 'rake'){
                           document.getElementById('pool').value = 100 - document.getElementById('rake').value
                         }else{
                           document.getElementById('rake').value = 100 - document.getElementById('pool').value
                         }
-                        
-
                         
                      }
                   </script>          

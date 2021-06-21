@@ -7,6 +7,7 @@ use App\Models\GamesPicked;
 use App\Models\Multiplier;
 use App\Models\User;
 use App\Models\Cashier;
+use Carbon\Carbon as CarbonCarbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -22,26 +23,40 @@ Route::get('/logout', function () {
 });
 
 Route::get('/', function () {
+    
     return redirect('login');
-    if(DB::table('rakes')->where('id',1)->count() == 0){
-    DB::table('rakes')->insert([
-        "percentage_raked"=>60,
-        "total_raked"=>0,
 
-    ]);}
 });
 
 
 
 Route::get('/dashboard', function () {
+
+    
+    if(DB::table('rakes')->get()->count() == 0){
+        DB::table('rakes')->insert([
+            "percentage_raked"=>60,
+            "total_raked"=>0,
+        ]);
+        }
+    
+        if(DB::table('pools')->get()->count() == 0){
+            DB::table('pools')->insert([
+                "percentage_pool"=> 40,
+                "total_pool"=>0,          
+        
+            ]);
+        }
+
+
+
     if(Auth::guest()){
         return redirect('login');
     }
+
     $play = DB::table('games_played')->get(); 
 
     if(Auth::user()->role == 'agent'){
-     
-        
         return redirect('agent');
     }
     
@@ -71,7 +86,7 @@ Route::get('debt_summary',[AdminController::class,'debt_summary']);
 //games route
 Route::view('create_game', 'game.create_game');
 Route::view('rake_pool', 'admin.rake_pool');
-Route::post('rake_pool', [AdminController::class,'rake_pool']);
+Route::post('_rake_pool', [AdminController::class,'_rake_pool']);
 Route::post('create_game', [AdminController::class,'create_game']);
 Route::get('all_games', [AdminController::class,'all_games']);
 Route::get('edit_game/{id}', [AdminController::class,'edit_games']);
