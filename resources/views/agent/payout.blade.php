@@ -27,7 +27,7 @@
                       <input type="number" id="amount" class="form-control" required />
                     </div>
                     <div class="form-group" hidden>
-                      <label for="first-name">First Name</label>
+                      <label for="first-name">First Name.</label>
                       <input type="text" id="first-name" value="{{Auth::user()->name}}" hidden />
                     </div>
                     <div class="form-group" hidden>
