@@ -100,6 +100,14 @@
                                 </div>
                               </div>
                             </div>
+                            <div class="col-md-12">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Five Combo:</label>
+                                <div class="col-sm-9">
+                                  <input name="6" type="number" class="form-control" value="" placeholder=""/>
+                                </div>
+                              </div>
+                            </div>
                         </div>
                         <div class="text-center">
                           <button type="submit" class="btn btn-success mr-2">Submit</button>

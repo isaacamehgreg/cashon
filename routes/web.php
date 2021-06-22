@@ -338,7 +338,7 @@ Route::get('/run_draw', function(){
       $bets = Bet::all();
      
       foreach($bets as $bet){
-          echo $bet->bet_code;
+       //   echo $bet->bet_code;
         $result= DB::table('bets')->where('bet_code',$bet->bet_code)->update([
             'result'=>$magic,
             'status'=>'played',
@@ -536,33 +536,31 @@ Route::get('/run_draw', function(){
             // curl_close($curl);
             ///sms
         }
- 
-        //run raffle for each cashier that played
-
-        // foreach (Cashier:: as Cashier){
-        //     foreach bets by Cashier id where play = pending and daya and time equal to today and now ()Game
-                      
-
-        // }
-        foreach (DB::table('cashiers')->get() as $_cashier) {
-            $played_bets = DB::table('bets')->where('cashier_id',$_cashier->cashier_id)->get();
-
-            return response()->json(['played'=>count($played_bets)],200);
-                
-            
-        }
-        
-        
-        
-        
-        
-        
-        
+      
    
-            
+     }
+
  
-      }
-      return redirect('/dashboard');
+    foreach (DB::table('cashiers')->get() as $_cashier) {
+        $played_bets = DB::table('bets')->where('cashier_id',$_cashier->cashier_id)->get();
+        $n = count($played_bets) - 1; 
+        $random = random_int(0,$n);
+        $raffle_winner = $played_bets[$random];
+
+
+        //give 5% of the amount played in on that terminal
+        
+
+
+        return response()->json($raffle_winner->id,200);
+                   
+    }
+
+
+
+
+
+    return redirect('/dashboard');
  
  });
 
