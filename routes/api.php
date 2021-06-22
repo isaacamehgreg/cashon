@@ -142,7 +142,7 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
        $remaining = (int)$game['stake'] - $t;
        //
        
-
+      //raked
        $total_rake = DB::table('rakes')->where('id', 1)->value('total_raked');
 
        $percentage_rake = DB::table('rakes')->where('id', 1)->value('percentage_raked');
@@ -156,8 +156,12 @@ Route::post('bet/{cashier_id}', function(Request $request, $cashier_id){
        $updater = DB::table('rakes')->where('id', 1)->update(['total_raked'=>$newr]);
     
        // put amount in pool 
+      $pool = $remaining - $r;
+      $total_pool = DB::table('pools')->where('id', 1)->value('total_pool');
+      $newpool = $pool + $total_pool;
+      $updatepool =  DB::table('pools')->where('id', 1)->update(['total_pool'=>$newpool]);
       
-      
+
 
 
      
@@ -270,7 +274,7 @@ Route::post('bet/paid/{cashier_id}/{ticket_number}', function($cashier_id,$ticke
 
 //Raffle
 Route::get('raffle/{cashier id}', function(){
-
+      
 });
 
 
