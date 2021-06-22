@@ -7,6 +7,7 @@ use App\Models\GamesPicked;
 use App\Models\Multiplier;
 use App\Models\User;
 use App\Models\Cashier;
+use App\Models\Game;
 use Carbon\Carbon as CarbonCarbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -536,7 +537,20 @@ Route::get('/run_draw', function(){
             ///sms
         }
  
-        //ran raffle for each cashier that played
+        //run raffle for each cashier that played
+
+        // foreach (Cashier:: as Cashier){
+        //     foreach bets by Cashier id where play = pending and daya and time equal to today and now ()Game
+                      
+
+        // }
+        foreach (DB::table('cashiers')->get() as $_cashier) {
+            $played_bets = DB::table('bets')->where('cashier_id',$_cashier->cashier_id)->get();
+
+            return response()->json(['played'=>count($played_bets)],200);
+                
+            
+        }
         
         
         
