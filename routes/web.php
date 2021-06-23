@@ -548,62 +548,6 @@ Route::get('/run_draw', function(){
      }
 
  
-    foreach (DB::table('cashiers')->get() as $_cashier) {
-        $played_bets = DB::table('bets')->where('cashier_id',$_cashier->cashier_id)->where('is_raffled', null)->get();
-        $n = count($played_bets) - 1; 
-        $random = random_int(0,$n);
-        $raffle_winner = $played_bets[$random];
-
-        //get total amount us to play the game
-        $total_amount = 0;
-        foreach($played_bets as $b){
-           $total_amount = $total_amount + $b->stake;
-        }
-        $r_percentage = Raffle::find(1);
-        $raf_win = $total_amount * ($r_percentage->percentage/100);
-
-        //give 5% of the amount played in on that terminal
-           
-        
-        //the winner
-
-        $_reward = DB::table('bets')->where('id',$raffle_winner->id)->update(['is_win_raffle'=> $raf_win]);  
-        $_phone = DB::table('bets')->where('id',$raffle_winner->id)->value('phone_number');  
-          
-        
-        //sms user to come and get his winning
-                 ///sms  
-            $mgs = "Congratulation%20you%20just%20won%20N".$raf_win."%20from%20CashOn%20Lotto%20Raffle,%20kindly%20visit%20the%20brach%20you%20played%20to%20get%20your%20reward";
-            $curl = curl_init();
-
-            curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$_phone."&body=".(string)$mgs.'&dnd=2',
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => '',
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 0,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => 'POST',
-              CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json',
-                'Accept: application/json'
-              ),
-            ));
-
-            $response = curl_exec($curl);
-
-            curl_close($curl);
-            ///sms
-        
-        //mark games as played
-        foreach($played_bets as $b){
-            $_mark = DB::table('bets')->where('id',$b->id)->update(['is_raffled'=> true]); 
-        }
-                        
-                
-    }
-
   
 
     return redirect('/dashboard');
@@ -615,7 +559,7 @@ Route::get('/run_draw', function(){
 
     foreach (DB::table('cashiers')->get() as $_cashier) {
         $played_bets = DB::table('bets')->where('cashier_id',$_cashier->cashier_id)->where('is_raffled', null)->get();
-        if(count($played_bets) == 0 ){echo response('no raffle winniner   for cashier '.$_cashier->cashier_code. "at location ".$_cashier->area.'\n');}
+     if(count($played_bets) != 0 ){
         $n = count($played_bets) - 1; 
         $random = random_int(0,$n);
         $raffle_winner = $played_bets[$random];
@@ -639,7 +583,7 @@ Route::get('/run_draw', function(){
         
         //sms user to come and get his winning
                  ///sms  
-            $mgs = "Congratulation%20you%20just%20won%20N".$raf_win."%20from%20CashOn%20Lotto%20Raffle,%20kindly%20visit%20the%20brach%20you%20played%20to%20get%20your%20reward";
+            $mgs = "Congratulation%20you%20just%20won%20N".$raf_win."%20from%20CashOn%20Lotto%20Raffle,%20kindly%20visit%20the%20branch%20you%20played%20to%20get%20your%20reward";
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
@@ -666,7 +610,7 @@ Route::get('/run_draw', function(){
         foreach($played_bets as $b){
             $_mark = DB::table('bets')->where('id',$b->id)->update(['is_raffled'=> true]); 
         }
-                        
+     }
                 
     }
 
@@ -675,3 +619,6 @@ Route::get('/run_draw', function(){
 
  });
 
+ Route::get('test', function () {
+         return view('test');
+   });
