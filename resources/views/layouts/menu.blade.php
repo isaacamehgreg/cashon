@@ -146,6 +146,14 @@
             <span class="menu-title">Run Draw</span>
           </a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/run_raffle">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Run Raffle</span>
+          </a>
+        </li>
+
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="agt">
             <i class="menu-icon typcn typcn-document-add"></i>

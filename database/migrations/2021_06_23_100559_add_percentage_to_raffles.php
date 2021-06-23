@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddIsraffleIswinraffleToBets extends Migration
+class AddPercentageToRaffles extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,18 @@ class AddIsraffleIswinraffleToBets extends Migration
      */
     public function up()
     {
-        Schema::table('bets', function (Blueprint $table) {
-            $table->boolean('is_raffled')->nullable();
-            $table->integer('is_win_raffle')->nullable();
+        Schema::table('raffles', function (Blueprint $table) {
+            $table->integer('percentage')->nullable();
         });
     }
 
-    /*
+    /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('bets');
+        Schema::dropIfExists('raffles');
     }
 }
