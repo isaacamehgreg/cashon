@@ -638,34 +638,51 @@ $(function () {
     });
     document.getElementById('doughnut-chart-legend').innerHTML = doughnutChart.generateLegend();
   }
+
   if ($("#pieChart").length) {
-    var wins = 0;
-    var loss = 0;
-    var cancel = 0;
-    fetch().
-    then().
-    then().
-    catch()
+
+   
+
+    var win = 2;
+    var lost = 45;
+
     var pieChartCanvas = $("#pieChart").get(0).getContext("2d");
+
+    async function cha(){
+    await fetch('/getchart').
+    then(data =>  data.json()).
+    then( res =>{
+      
+      win = res.win;
+      lost= res.lost;
+
+      console.log(res);
+      console.log(win);
+      console.log(lost);
+    }).
+    catch(
+     err=>console.log(err)
+    )
+  }
+
     var pieChart = new Chart(pieChartCanvas, {
       type: 'pie',
       data: {
         datasets: [{
-
-          data: [3, 7, 40],
+          data: [ win, lost],
           backgroundColor: [
-            ChartColor[0],
             ChartColor[1],
+            ChartColor[2],
             ChartColor[2]
           ],
           borderColor: [
             ChartColor[0],
-            ChartColor[1],
-            ChartColor[2]
+            ChartColor[0],
+            ChartColor[0]
           ],
         }],
         labels: [
-          'Cancel',
+          
           'Wins',
           'Loss',
         ]

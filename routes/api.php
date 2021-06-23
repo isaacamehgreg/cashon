@@ -221,11 +221,11 @@ Route::get('bet/{cashier_id}' , function($cashier_id){
     if(count($bets) == 0){
         return response()->json([
             "mybets"=> "you dont have any bet"
-          ]);  
+          ],404);  
     }
     return response()->json([
       "mybets"=> $bets
-    ]);
+    ],200);
 });
 
 Route::get('bet/find/{cashier_id}/{ticket_number}' , function($cashier_id , $ticket_number){
@@ -235,6 +235,7 @@ Route::get('bet/find/{cashier_id}/{ticket_number}' , function($cashier_id , $tic
             "mybets"=> "no bet found! probably wrong ticket number"
         ], 404);  
     }
+    if($bets->result_status)
     return response()->json([
       "mybets"=> $bets
     ],200);

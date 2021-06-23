@@ -67,7 +67,7 @@
         <div class="col-md-6 mx-auto grid-margin stretch-card">
           <div class="card">
             <div class="card-body justify-content-around" style="">
-              <h4 class="card-title">Referal win Percentage</h4><hr>
+              <h4 class="card-title"></h4><hr>
               <form method="post" action="_rake_pool" class="forms-sample">
                 @csrf
                 
@@ -80,12 +80,6 @@
             
                 
             
-                <div class="form-group">
-                  <label for="exampleInputCity1">POOL per bet</label>
-                  <input type="number" name="pool" onchange="set('pool')" class="form-control" id="pool" 
-                  
-                  >
-                </div>
 
                </div>
            

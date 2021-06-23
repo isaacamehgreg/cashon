@@ -404,27 +404,27 @@ Route::get('/run_draw', function(){
          $combo2 = DB::table('bets')->where('bet_code',$bet->bet_code)->value('combo2');
          DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo2,'result_status'=>'won',]);
             ///sms  
-                // $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
-                // $curl = curl_init();
+                $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
+                $curl = curl_init();
 
-                // curl_setopt_array($curl, array(
-                //   CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
-                //   CURLOPT_RETURNTRANSFER => true,
-                //   CURLOPT_ENCODING => '',
-                //   CURLOPT_MAXREDIRS => 10,
-                //   CURLOPT_TIMEOUT => 0,
-                //   CURLOPT_FOLLOWLOCATION => true,
-                //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                //   CURLOPT_CUSTOMREQUEST => 'POST',
-                //   CURLOPT_HTTPHEADER => array(
-                //     'Content-Type: application/json',
-                //     'Accept: application/json'
-                //   ),
-                // ));
+                curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => '',
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 0,
+                  CURLOPT_FOLLOWLOCATION => true,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => 'POST',
+                  CURLOPT_HTTPHEADER => array(
+                    'Content-Type: application/json',
+                    'Accept: application/json'
+                  ),
+                ));
 
-                // $response = curl_exec($curl);
+                $response = curl_exec($curl);
 
-                // curl_close($curl);
+                curl_close($curl);
                 ///sms
 
         }
@@ -433,27 +433,27 @@ Route::get('/run_draw', function(){
          DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo3, 'result_status'=>'won',]);
 
             ///sms  
-            // $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
-            // $curl = curl_init();
+            $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
+            $curl = curl_init();
 
-            // curl_setopt_array($curl, array(
-            //   CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
-            //   CURLOPT_RETURNTRANSFER => true,
-            //   CURLOPT_ENCODING => '',
-            //   CURLOPT_MAXREDIRS => 10,
-            //   CURLOPT_TIMEOUT => 0,
-            //   CURLOPT_FOLLOWLOCATION => true,
-            //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            //   CURLOPT_CUSTOMREQUEST => 'POST',
-            //   CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Accept: application/json'
-            //   ),
-            // ));
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept: application/json'
+              ),
+            ));
 
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-            // curl_close($curl);
+            curl_close($curl);
             ///sms
 
         }
@@ -462,27 +462,27 @@ Route::get('/run_draw', function(){
          DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo4, 'result_status'=>'won',]);
 
             ///sms  
-            // $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
-            // $curl = curl_init();
+            $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
+            $curl = curl_init();
 
-            // curl_setopt_array($curl, array(
-            //   CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
-            //   CURLOPT_RETURNTRANSFER => true,
-            //   CURLOPT_ENCODING => '',
-            //   CURLOPT_MAXREDIRS => 10,
-            //   CURLOPT_TIMEOUT => 0,
-            //   CURLOPT_FOLLOWLOCATION => true,
-            //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            //   CURLOPT_CUSTOMREQUEST => 'POST',
-            //   CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Accept: application/json'
-            //   ),
-            // ));
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept: application/json'
+              ),
+            ));
 
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-            // curl_close($curl);
+            curl_close($curl);
             ///sms
 
         }
@@ -491,27 +491,27 @@ Route::get('/run_draw', function(){
          DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo5, 'result_status'=>'won',]);
 
             ///sms  
-            // $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
-            // $curl = curl_init();
+            $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
+            $curl = curl_init();
 
-            // curl_setopt_array($curl, array(
-            //   CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
-            //   CURLOPT_RETURNTRANSFER => true,
-            //   CURLOPT_ENCODING => '',
-            //   CURLOPT_MAXREDIRS => 10,
-            //   CURLOPT_TIMEOUT => 0,
-            //   CURLOPT_FOLLOWLOCATION => true,
-            //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            //   CURLOPT_CUSTOMREQUEST => 'POST',
-            //   CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Accept: application/json'
-            //   ),
-            // ));
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept: application/json'
+              ),
+            ));
 
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-            // curl_close($curl);
+            curl_close($curl);
             ///sms
 
         }
@@ -520,27 +520,27 @@ Route::get('/run_draw', function(){
             DB::table('bets')->where('bet_code',$bet->bet_code)->update(['payout'=>$combo6, 'result_status'=>'won',]);
 
                 ///sms  
-            // $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
-            // $curl = curl_init();
+            $mgs = "Congratulation%20you%20just%20won%20N".$bet->payout."%20from%20CashOn%20Lotto%20this%20is%20your%20ticket%20number%20for%20your%20payouts%20".$bet->ticket_number ;
+            $curl = curl_init();
 
-            // curl_setopt_array($curl, array(
-            //   CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
-            //   CURLOPT_RETURNTRANSFER => true,
-            //   CURLOPT_ENCODING => '',
-            //   CURLOPT_MAXREDIRS => 10,
-            //   CURLOPT_TIMEOUT => 0,
-            //   CURLOPT_FOLLOWLOCATION => true,
-            //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            //   CURLOPT_CUSTOMREQUEST => 'POST',
-            //   CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Accept: application/json'
-            //   ),
-            // ));
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://www.bulksmsnigeria.com/api/v2/sms/create?api_token=PlliAR9ioFYzhYKYWlkXQXbeIHFBQaN61B7Sbrx0ypLDMFxRtHShBWrismz8&from=CASHON_LOTTO&to=".(string)$bet->phone."&body=".(string)$mgs.'&dnd=2',
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => '',
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 0,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => 'POST',
+              CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Accept: application/json'
+              ),
+            ));
 
-            // $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-            // curl_close($curl);
+            curl_close($curl);
             ///sms
         }
       
@@ -622,3 +622,10 @@ Route::get('/run_draw', function(){
  Route::get('test', function () {
          return view('test');
    });
+
+  Route::get('getchart', function () {
+    $win = Bet::where('result_status','won')->count();
+    $lost = Bet::where('result_status','lost')->count();
+    
+    return response()->json(['win' =>$win,'lost' =>$lost],200);
+  });
