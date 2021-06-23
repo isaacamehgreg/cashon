@@ -549,7 +549,7 @@ Route::get('/run_draw', function(){
 
 
         //give 5% of the amount played in on that terminal
-        
+                
 
 
         return response()->json($raffle_winner->id,200);
