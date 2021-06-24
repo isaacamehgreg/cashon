@@ -331,7 +331,7 @@ Route::get('/run_draw', function(){
                           $winning_number[2]->number=>$winning_number[2]->number,
                           $winning_number[3]->number=>$winning_number[3]->number,
                           $winning_number[4]->number=>$winning_number[4]->number,
-                        //   $winning_number[5]->number=>$winning_number[5]->number,
+                          $winning_number[5]->number=>$winning_number[5]->number,
                         );
     $magic= $winning_number[0]->number. 
             $winning_number[1]->number.
