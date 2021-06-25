@@ -37,7 +37,7 @@
     <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background: #0c0d50;">
       <ul class="nav">
         <li class="nav-item nav-profile">
-          <a href="#" class="nav-link">
+          <a  class="nav-link">
          
             <div class="text-wrapper">
               <p class="profile-name">{{Auth::user()->name}}</p>
@@ -61,12 +61,7 @@
           </a>
         </li>
        
-        {{-- <li class="nav-item">
-          <a class="nav-link" href="payment-history.html">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Payment History</span>
-          </a>
-        </li> --}}
+   
         
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#agt" aria-expanded="false" aria-controls="agt">
@@ -140,19 +135,6 @@
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/run_draw">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Run Draw</span>
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/run_raffle">
-            <i class="menu-icon typcn typcn-document-text"></i>
-            <span class="menu-title">Run Raffle</span>
-          </a>
-        </li>
 
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#admin" aria-expanded="false" aria-controls="agt">
@@ -178,5 +160,47 @@
             <span class="menu-title">Logout</span>
           </a>
         </li>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+        <li class="nav-item" styles="">
+          
+          <a  class="nav-link  btn btn-danger" style="background-color: red" href="/run_draw">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Run Draw</span>
+          </a>
+        </li>
+      <br>
+        <li class="nav-item">
+          <a  class="nav-link  btn btn-danger" style="background-color: green" href="/run_raffle">
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Run Raffle</span>
+          </a>
+        </li>
+
       </ul>
+
+
+
+
+
     </nav>
+
+
+    

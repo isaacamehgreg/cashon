@@ -40,7 +40,7 @@
                                 <label class="col-sm-3 col-form-label">Day:</label>
                                 <div class="col-sm-9">
                                   
-                                  <select name="day" class="right" class="form-control">
+                                  <select name="day"  class="right" class="form-control">
                                     <option value="Monday">Monday</option>
                                     <option value="Tuesday">Tuesday</option>
                                     <option value="Wednesday">Wednesday</option>
@@ -49,6 +49,24 @@
                                     <option value="Saturday">Saturday</option>
                                     <option value="Sunday">Sunday</option>
                                   </select>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="col-md-12">
+                              <div class="form-group row">
+                                <label class="col-sm-3 col-form-label">Game Rules:</label>
+                                <div class="col-sm-9">
+                                  
+                                  <select name="game_rule"  class="right" class="form-control">
+                                    <option>--choose game rule--</option>
+                                    <option value="50/50">Fair Legend (50/50)</option>
+                                    <option value="60/40">Reward Lotto(60/40)</option>
+                                    <option value="70/30">Generic (70/30)</option>
+                                    <option value="80/20">Game cross (80/20)</option>
+                                    <option value="90/10">Deal Up (90/10)</option>
+                                  </select>
+
                                 </div>
                               </div>
                             </div>

@@ -99,6 +99,13 @@ class AdminController extends Controller
 
     //games
     public function create_game(Request $request){
+        $rule = $request->input('game_rule');
+        $rake= 60;
+        $pool= 40;
+        if($rule == '50/50'){
+            $rake= 50;
+            $pool= 50;
+        }
         $insert = DB::table('games')->insert([
             'draw'=>$request->input('draw'),
             'game_code'=>$request->input('game_code'),
