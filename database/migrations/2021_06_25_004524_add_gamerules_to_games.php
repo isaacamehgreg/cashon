@@ -14,7 +14,9 @@ class AddGamerulesToGames extends Migration
     public function up()
     {
         Schema::table('games', function (Blueprint $table) {
-            //
+            $table->string('game_rule')->nullable();
+            $table->integer('')->nullable();
+            $table->integer('percentage')->nullable();
         });
     }
 
@@ -25,8 +27,6 @@ class AddGamerulesToGames extends Migration
      */
     public function down()
     {
-        Schema::table('games', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('games');
     }
 }
