@@ -342,7 +342,7 @@ Route::get('/run_draw', function(){
     //magic number is just winnng numbers in key value pair so that Arr::exists can work and search
  
      //for loop throw all the tickes
-      $bets = Bet::all();
+      $bets = Bet::where('status','pending')->get();
      
       foreach($bets as $bet){
        //   echo $bet->bet_code;
