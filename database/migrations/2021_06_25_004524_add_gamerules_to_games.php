@@ -15,8 +15,8 @@ class AddGamerulesToGames extends Migration
     {
         Schema::table('games', function (Blueprint $table) {
             $table->string('game_rule')->nullable();
-            $table->integer('')->nullable();
-            $table->integer('percentage')->nullable();
+            $table->integer('rake')->nullable();
+            $table->integer('pool')->nullable();
         });
     }
 

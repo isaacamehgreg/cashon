@@ -112,10 +112,14 @@ class AdminController extends Controller
             'day'=>$request->input('day'),
             'time'=>$request->input('time'),
             'game_name'=>$request->input('game_name'),
+            'game_rule'=>$request->input('game_rule'),
+            'rake'=>$request->input('rake'),
+            'pool'=>$request->input('pool'),
             'combo2'=>$request->input('2'),
             'combo3'=>$request->input('3'),
             'combo4'=>$request->input('4'),
             'combo5'=>$request->input('5'),
+            'combo6'=>$request->input('6'),
 
         ]);
         return redirect('all_games');
