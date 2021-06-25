@@ -106,6 +106,22 @@ class AdminController extends Controller
             $rake= 50;
             $pool= 50;
         }
+        if($rule == '60/40'){
+            $rake= 60;
+            $pool= 40;
+        }
+        if($rule == '70/30'){
+            $rake= 70;
+            $pool= 30;
+        }
+        if($rule == '80/20'){
+            $rake= 80;
+            $pool= 20;
+        }
+        if($rule == '90/10'){
+            $rake= 90;
+            $pool= 10;
+        }
         $insert = DB::table('games')->insert([
             'draw'=>$request->input('draw'),
             'game_code'=>$request->input('game_code'),
