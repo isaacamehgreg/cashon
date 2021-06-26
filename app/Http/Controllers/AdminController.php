@@ -196,7 +196,7 @@ class AdminController extends Controller
             'unhash'=>$request->input('password'),
             'role'=>'admin',
         ]);
-        return redirect('all_agents');
+        return redirect('all_admin');
         
     }
     

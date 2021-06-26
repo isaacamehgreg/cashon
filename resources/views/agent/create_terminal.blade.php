@@ -6,7 +6,7 @@
      <!-- partial -->
      <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      @include('layouts.agent_menu')
+      @include('layouts.menu')
 
       
       <div class="main-panel">
@@ -21,8 +21,23 @@
                 
 
                     
-                      <input type="text" name="agent" class="form-control" id="exampleInputName1" placeholder="Name" value="{{Auth::user()->id}}" hidden>
+                  
+
                     
+                    <div class="form-group">
+                      <label for="exampleInputName1">Agent Incharge</label>
+                      <div class="form-group">
+                        <label for=""></label>
+                        <select class="form-control" name="agent" id="">
+                          @foreach (DB::table('users')->where('role','agent')->get() as $agents)
+                          <option value="{{$agents->id}}">Name:{{$agents->name}} | Email:{{$agents->email}}</option>
+                          @endforeach
+                    
+                        
+                        </select>
+                      </div>
+      
+                    </div>   
 
                     <div class="form-group">
                       <label for="exampleInputName1">Name</label>

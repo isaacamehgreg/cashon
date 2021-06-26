@@ -47,7 +47,7 @@
         </li>
 
         <li class="nav-item nav-category">Main Menu</li>
-        @if(Auth::user()->role == null || Auth::user()->role == '')
+
         <li class="nav-item">
           <a class="nav-link" href="/dashboard">
             <i class="menu-icon typcn typcn-document-text"></i>
@@ -84,9 +84,8 @@
           </div>
         </li>
 
-        @endif
 
-        @if(Auth::user()->role == 'agent')
+      
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#terminal" aria-expanded="false" aria-controls="agt">
             <i class="menu-icon typcn typcn-document-add"></i>
@@ -96,15 +95,15 @@
           <div class="collapse" id="terminal">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="all-terminal"> All Terminals </a>
+                <a class="nav-link" href="_all_terminal"> All Terminals </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="create_a_terminal"> Add Terminal </a>
+                <a class="nav-link" href="_add_terminal"> Create Terminal </a>
               </li>
             </ul>
           </div>
         </li>
-        @endif
+
 
         <li class="nav-item">
           <a class="nav-link" data-toggle="collapse" href="#games" aria-expanded="false" aria-controls="games">
@@ -128,12 +127,12 @@
         </li>
        
 
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="/rake_pool">
             <i class="menu-icon typcn typcn-document-text"></i>
             <span class="menu-title">Set Rake and Pool</span>
           </a>
-        </li>
+        </li> --}}
 
 
         <li class="nav-item">
@@ -169,8 +168,7 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
+
         <br>
         <br>
         <br>

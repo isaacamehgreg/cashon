@@ -197,7 +197,15 @@ return Bet::all();
         
         //agent Route//////////////////////////////////////////////////////////////
         Route::get('agent',function(){
-  
+            if(Auth::guest()){
+             return redirect('login');
+            }
+            // $agent = Auth::user()->id;
+            // foreach( Cashier::where('agent_id',$agent)->get()){
+            //     foreach(Bet::){
+
+            //     }
+            // }
             $bets = Bet::orderBy('created_at', 'DESC')->get();
             $cashiers= Cashier::where('agent_id',Auth::user()->id)->orderBy('created_at', 'DESC')->get();
             return view('agent.index')->with([
@@ -209,7 +217,7 @@ return Bet::all();
         });
 
         Route::get('_all_terminal',function(){
-            $cashiers= Cashier::where('agent_id',Auth::user()->id)->orderBy('created_at', 'DESC')->get();
+            $cashiers= Cashier::orderBy('created_at', 'DESC')->get();
             return view('agent.all_terminal')->with([
                 
                 'cashiers'=>$cashiers
