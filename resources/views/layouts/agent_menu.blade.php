@@ -30,9 +30,7 @@
                   <li class="nav-item">
                     <a class="nav-link" href="/_all_terminal"> All Terminals </a>
                   </li>
-                  {{-- <li class="nav-item">
-                    <a class="nav-link" href="/_add_terminal"> Add Terminal </a>
-                  </li> --}}
+                 
                   <li class="nav-item">
                     <a class="nav-link" href="/_credit"> Allocate credit </a>
                   </li>
