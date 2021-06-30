@@ -117,7 +117,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                   @foreach (DB::table('games')->get()->paginate() as $game)
+                   @foreach (DB::table('games')->get() as $game)
                        
                 
                     <tr>
