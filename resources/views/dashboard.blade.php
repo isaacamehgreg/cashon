@@ -131,9 +131,7 @@
                       <td>{{$game->combo3}}</td>
                       <td>{{$game->combo4}}</td>
                       <td>{{$game->combo5}}</td> 
-                      
-               
-                      
+                                        
             
                       <td><a href="/edit_game/{{$game->id}}" class="btn btn-warning btn-sm">Edit</a></td>
                     </tr>
@@ -154,6 +152,7 @@
                   <canvas class="my-auto" id="pieChart" height="130"></canvas>
                 </div>
               </div>
+              
             </div>
           </div>
           <div class="row">
